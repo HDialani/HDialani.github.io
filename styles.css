@@ -122,27 +122,3 @@ header {
 .center {
     text-align: center;
 }
-
-.image-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.image-container img {
-    max-width: 25%; /* You can adjust the width as needed */
-    height: auto;
-}
-
-.image-video-container {
-    display: flex;
-    align-items: center;
-}
-
-.image, .video {
-    flex: 1;
-}
-
-.video {
-    margin-left: 10px; /* Adjust the margin as needed for spacing */
-}
