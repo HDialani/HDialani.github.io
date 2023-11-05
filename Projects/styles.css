@@ -1,5 +1,17 @@
-body {
-    font-family: Arial, sans-serif;
+/* Define styles for unvisited links */
+a:link {
+    color: blue;
+    text-decoration: none; /* Remove underline if desired */
+}
+
+/* Define styles for visited links */
+a:visited {
+    color: blue; /* Set the color to blue for visited links */
+}
+
+/* Define styles for hovered links */
+a:hover {
+    color: purple; /* Change color on hover if desired */
 }
 
 .blog-grid {
@@ -34,4 +46,20 @@ body {
 
 .blog-item p {
     margin: 10px 0;
+}
+
+#home-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #007bff; /* Blue background color, you can change this */
+    color: #fff; /* Text color */
+    padding: 10px; /* Adjust padding as needed */
+}
+
+#home-box a {
+    text-decoration: none;
+    color: #fff; /* Link color */
+    font-weight: bold;
+    font-size: 18px;
 }

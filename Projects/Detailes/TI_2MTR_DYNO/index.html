@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TI 2MTR DYNO- Hitesh Dialani</title>
+    <title>TI 2MTR DYNO · Hitesh Dialani</title>
     <link rel="stylesheet" href="../styles.css">
 		<script src="../script.js"></script>
     <style>
@@ -26,7 +26,7 @@
 </head>
 <body>
 	<div class="sidebar">
-        <h2>Header Files</h2>
+        <h2>TI 2MTR DYNO</h2>
         <ul>
             <li><a href="#motivation">Motivation</a></li>
            <li><a href="#all_DYNO_parts">ALL DYNO parts</a></li>				
@@ -52,6 +52,7 @@
 					    </ul>
 					<li><a href="#simulink">Simulink</a></li>						
 				</ul>					
+            <li><a href="#spinning_the_motor">Spinning the motor</a></li>				
             <li><a href="#dyno_assembly">Dyno assembly</a></li>						
         </ul>
     </div>
@@ -281,7 +282,7 @@
 
     <h2 id="manually" class="center">Manually</h2>
 
-	<p class="center">For the manual approach I followed the NXP application document <a href="AN4680.pdf" target="_blank">AN4680</a>. Sadly they took it down so the link is to a local copy. </p>
+	<p class="center">For the manual approach I followed the NXP application document <a href="Motor_parameters/AN4680.pdf" target="_blank">AN4680</a>. Sadly they took it down so the link is to a local copy. </p>
 	
 	<div class="content-center">
 		<h3 id="number_of_pole_pairs">Number of pole pairs </h3>
@@ -342,7 +343,7 @@
 	</div>	
 	
 	<div class="content-center">
-		<p>The above equation is from <a href="AN4680.pdf" target="_blank">AN4680</a>  But I want to find \(K_e\), so I can use the below equation to convert it </p>
+		<p>The above equation is from <a href="Motor_parameters/AN4680.pdf" target="_blank">AN4680</a>  But I want to find \(K_e\), so I can use the below equation to convert it </p>
 		<p style="font-size: 20px;">\(K_{e}=\frac{\lambda_{pm}\cdot 1000 \cdot \sqrt{3}\cdot p \cdot 2 \pi}{60} [\frac{V}{KRPM}] \)</p>
 		<p> Here \(p\) represents the number of pole-pairs,\(\sqrt{3}\) accounts for the conversion from line-to-line voltage to line-to-neutral voltage,<br> \(\frac{2 \pi}{60}\) is used to convert from radians per second to RPM, and finally, 1000 is used to represent KRPM</p>  		
 		<p style="font-size: 20px;"> Combining the above two equations gives </p>
@@ -373,12 +374,12 @@
 			<li> Put current probe over phase A</li>		
 			<li> Place - terminal to phase A and + terminal to phases B and C</li>	
 			<li> Set the oscilloscope to single mode trigger</li>
-			<li> Set voltage look into <a href="AN4680.pdf" target="_blank">AN4680</a> for the full explanation</p>
+			<li> Set voltage look into <a href="Motor_parameters/AN4680.pdf" target="_blank">AN4680</a> for the full explanation</p>
 	</div>	 
 
 	<div class="content-center">
 		<h4 id="inductance_direct">Inductance direct \(L_d\)</h4>
-		<p>The steps are from <a href="AN4680.pdf" target="_blank">AN4680</a></p>
+		<p>The steps are from <a href="Motor_parameters/AN4680.pdf" target="_blank">AN4680</a></p>
 		<ol class="centered-list">
 			<li> Set the current limit to 10% of \(I_{rated}\) and the voltage limit to 24V</li>
 			<li> Place + terminal to phase A and - terminal to phases B and C</li> 
@@ -396,7 +397,7 @@
 	</div>
 			<figcaption>Photo: Hitesh Dialani. The left is the setup and right is the first measurement result for Ld</figcaption>
 			
-	<p class="center">The result did not match the result shown in <a href="AN4680.pdf" target="_blank">AN4680</a>. Turns out it was the power supply, the one I used had took too long to sent the step respond.</p>	
+	<p class="center">The result did not match the result shown in <a href="Motor_parameters/AN4680.pdf" target="_blank">AN4680</a>. Turns out it was the power supply, the one I used had took too long to sent the step respond.</p>	
 	
 	<div class="image-container">
 		<img src="Motor_parameters/Powersupply_slow.jpg" alt="Image 2" >
@@ -536,6 +537,8 @@
         <figcaption><a href="https://www.christidis.info/index.php/blog/54-ti-2mtr-dyno-motor-characteristics" target="_blank">Source</a></figcaption>
      </figure>
 	 		
+	<h1 id="spinning_the_motor" class="center">Spinning the motor</h1>
+
 	<h1 id="dyno_assembly" class="center">Dyno assembly</h1>	 
 	<div class="image-container">
 		<img src="Assembly/Oldham_coupling_assembled.jpeg" alt="Image 1">
