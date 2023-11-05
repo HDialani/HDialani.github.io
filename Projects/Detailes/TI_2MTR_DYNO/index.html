@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TI 2MTR DYNO- Hitesh Dialani</title>
+    <link rel="stylesheet" href="../styles.css">
+		<script src="../script.js"></script>
+    <style>
+        /* Center the image and set its maximum width */
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 30%; /* Adjust the maximum width as needed */
+        }
+        figcaption {
+            text-align: center;
+            font-style: italic;
+        }
+    </style>
+	
+		<!-- Latex code library -->
+	 <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+	<div class="sidebar">
+        <h2>Header Files</h2>
+        <ul>
+            <li><a href="#motivation">Motivation</a></li>
+           <li><a href="#all_DYNO_parts">ALL DYNO parts</a></li>				
+            <li><a href="#things-needed">Things Needed for this Project</a></li>
+            <li><a href="#setting-up">Setting Up Everything</a></li>
+				<ul>
+					<li><a href="#wiring">Wiring</a></li>
+					<li><a href="#software">Software</a></li>				
+				</ul>
+            <li><a href="#extract-motor-parameters">Extract Motor Parameters</a></li>				
+				<ul>
+					<li><a href="#datasheet">Datasheet</a></li>
+					<li><a href="#manually">Manually</a></li>
+				        <ul>
+							<li><a href="#number_of_pole_pairs">Number of pole pairs</a></li>		
+							<li><a href="#stator_resistance">Stator resistance</a></li>			
+							<li><a href="#back_emf">Back-emf</a></li>										
+							<li><a href="#inductance">Inductance</a></li>
+								<ul>
+									<li><a href="#inductance_direct">Inductance direct</a></li>		
+									<li><a href="#inductance_quadrature">Inductance quadrature</a></li>									
+								</ul>								
+					    </ul>
+					<li><a href="#simulink">Simulink</a></li>						
+				</ul>					
+            <li><a href="#dyno_assembly">Dyno assembly</a></li>						
+        </ul>
+    </div>
+	 
+	<div class="main-content">
+    <p><b>Jesus, I need new hobbies.</b></p>
+	<button id="scrollToTopButton">^</button>
+    
+	<figure>
+        <img src="Setup.jpeg" alt="Image description">
+        <figcaption>Photo: Hitesh Dialani</figcaption>
+    </figure>
+
+	<div class="content-center">
+		<h1 id="motivation">Motivation</h1>
+		<p>I needed 15 ECTS for extra section, and this was more fun than exams and less of a hassle than an internship.</p>
+	</div>
+	
+	<div class="content-center">
+			 <h1 id="all_DYNO_parts">All DYNO parts</h1>
+		<p>All part are shown below</p>
+	</div>		
+
+	 <div class="image-container">
+		<img src="Assembly/Full_Dyno_open_labelled.png" alt="Image 1" style="width: 700px !important; height: auto;">
+	</div>
+			<figcaption>All parts labelled </figcaption>			
+			
+		<div class="center">
+			<table border="1">
+				<tr>
+					<th>Item</th>
+					<th>Amount</th>
+					<th>Letter</th>					
+					<th>Comment</th>					
+				</tr>
+				<tr>
+					<td>Boostxl-drv8305evm</td>
+					<td>2</td>
+					<td>A</td>					
+					<td>-</td>					
+				</tr>
+				<tr>
+					<td>Boostxl-3PHGaNinv</td>
+					<td>2</td>
+					<td>B</td>					
+					<td>-</td>						
+				</tr>
+				<tr>
+					<td>M-2310P-LN-04K (PMSM)</td>
+					<td>2</td>
+					<td>C</td>					
+					<td>-</td>					
+				</tr>
+				<tr>
+					<td>LVACIMTR (induction machine)</td>
+					<td>1</td>
+					<td>D</td>					
+					<td>-</td>						
+				</tr>				
+				<tr>
+					<td>PMSM motor to converter wiring</td>
+					<td>2</td>
+					<td>E</td>					
+					<td>-</td>						
+				</tr>				
+				<tr>
+					<td>Aluminum dyno frame</td>
+					<td>1</td>
+					<td>F</td>					
+					<td>-</td>						
+				</tr>
+				<tr>
+					<td>Metal adapter for induction machine</td>
+					<td>1</td>
+					<td>G</td>					
+					<td>-</td>					
+				</tr>
+				<tr>
+					<td>Oldham rotor center disk</td>
+					<td>1</td>
+					<td>H</td>					
+					<td>-</td>					
+				</tr>				
+				<tr>
+					<td>Oldham rotor flank</td>
+					<td>3</td>
+					<td>I</td>					
+					<td>-</td>						
+				</tr>
+				<tr>
+					<td>M5 screws, 25mm length</td>
+					<td>8</td>
+					<td>J</td>					
+					<td>For PMSM</td>						
+				</tr>		
+				<tr>
+					<td>M6 screws, 22mm length</td>
+					<td>4</td>
+					<td>K</td>					
+					<td>For Induction</td>					
+				</tr>	
+				<tr>
+					<td>M6 washers</td>
+					<td>4</td>
+					<td>L</td>					
+					<td>For Induction</td>					
+				</tr>
+				<tr>
+					<td>M4 screws, 11mm length</td>
+					<td>4</td>
+					<td>M</td>					
+					<td>For induction machine adapter aluminium plate</td>						
+				</tr>	
+				<tr>
+					<td>M3 screws</td>
+					<td>6</td>
+					<td>N</td>					
+					<td>For tighten the rotor flangs onto motor</td>						
+				</tr>					
+				<tr>
+					<td>M4 allen key</td>
+					<td>1</td>
+					<td>O</td>	
+					<td>-</td>						
+				</tr>				
+				<tr>
+					<td>M3 allen key</td>
+					<td>1</td>
+					<td>P</td>		
+					<td>-</td>						
+				</tr>
+				<tr>
+					<td>M5 allen key</td>
+					<td>1</td>
+					<td>Q</td>		
+					<td>-</td>						
+				</tr>											
+			</table>
+		</div>
+		
+	<div class="content-center">
+		<h1 id="things-needed">Things Needed for this Project</h1>
+			<ul class="centered-list">
+				<li>Texas Instruments TMS320F28379D Launchpad</li>
+				<li>Texas Instruments BoostXL-drv8305</li>
+				<li>24-volt power supply</li>
+				<li>M-2310P-LN-04K Brushless Three-Phase permanent magnet motor</li>
+				<li>Micro-fit connector</li>
+				<li>Oscilloscope</li>
+				<li>Voltage probes</li>
+				<li>Current probes</li>
+				<li>Mini USB cable for programming</li>
+				<li>Laptop/Computer with Matlab 2021b or later.<br> You need the motor controller block set and all relevant code for C2000 programming with Simulink.</li>
+			</ul>
+	</div>
+
+	<div class="content-center">
+		<h1 id="setting-up">Setting Up Everything</h1>
+		<p>Now, let's proceed with setting everything up.</p>
+	</div>
+
+    <h2 id="wiring" class="center">Wiring</h2>
+	
+	<div class="image-container">
+		<img src="Wiring/TI_motorkit_setup_part2.png" alt="Image 2" style="width: 300px; height: 300px;">
+		<img src="Wiring/TI_motorkit_setup_part1.png" alt="Image 1" >
+		<img src="Wiring/TI_motorkit_setup_part3.png" alt="Image 3" style="width: 400px; height: 400px;">
+	</div>
+			<figcaption>Source: <a href="https://nl.mathworks.com/help/mcb/gs/hardware-connections.html" target="_blank">Hardware Connections</a></figcaption>
+
+	<p class="center">Assembling everything together gives the image below</p>
+
+	 <figure>
+		<p><img src="Wiring/Assembled.png" alt="Assembled"></p>
+        <figcaption>Photo: Hitesh Dialani</figcaption>
+     </figure>
+	 
+	<div class="content-center">
+		<p> The blue wire on the bottom is ground. The red is PVDD (Power). The BoostXL-drv8305 does <b>not</b> have reverse voltage protection so don’t mix them up.<br> 
+		 I added brown electrical tape to represent phase A motor side. Green is phase B and black tape is phase C.
+		Mixing up phases can cause the motor to spin the opposite direction. </p> 
+	</div>
+	
+	<div class="content-center">
+		<h2 id="software">Software</h2>
+		<p>Make sure you can already do the <a href="https://nl.mathworks.com/videos/getting-started-with-c2000-microcontroller-blockset-1691473750888.html?s_tid=vid_pers_recs" target="_blank">Blinky example</a> from Matlab. Ps you need Control suite,Code composer studio and Embedded coder, don't forger Control suite from TI.</p>
+	</div>
+	
+    <h1 id="extract-motor-parameters" class="center">Extract Motor Parameters</h1>
+    <p class="center">  There are 3 different ways to find the motor parameters. datasheet, manually and </p>
+
+
+	<div class="content-center">
+		<h2 id="datasheet">From Datasheet</h2>
+		<p>I used  <a href="https://www.teknic.com/files/product_info/N23_Industrial_Grade_Motors_v6.3.pdf" target="_blank">m-2310p-ln-04k</a> from teknic.com I also have a <a href="Datasheet\N23_Industrial_Grade_Motors_v6.3.pdf" target="_blank">local copy</a>. </p>
+		<div class="center">
+			<table border="1">
+				<tr>
+					<th>Parameter</th>
+					<th>Value</th>
+					<th>Unit</th>
+				</tr>
+				<tr>
+					<td>Pole pairs</td>
+					<td>4</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Resistance, phase to phase</td>
+					<td>0.72</td>
+					<td>\(\Omega\)</td>
+				</tr>
+				<tr>
+					<td>Inductance, phase to phase</td>
+					<td>0.40</td>
+					<td>\(mH\)</td>
+				</tr>
+				<tr>
+					<td>Back EMF \(K_e\)</td>
+					<td>4.64</td>
+					<td>\(V_{peak}/kRPM\)</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+    <h2 id="manually" class="center">Manually</h2>
+
+	<p class="center">For the manual approach I followed the NXP application document <a href="AN4680.pdf" target="_blank">AN4680</a>. Sadly they took it down so the link is to a local copy. </p>
+	
+	<div class="content-center">
+		<h3 id="number_of_pole_pairs">Number of pole pairs </h3>
+		<p >For the number of pole pairs I followed </p>
+	</div>	
+	
+	<div class="top-and-bottom">
+		<div class="item">
+			<img src="Motor_parameters/Pole_pairs.png" alt="pole_pairs" style="max-width: 75%; height: auto;">
+		</div>
+		<div class="item">
+			<video width="400" controls>
+				<source src="Motor_parameters/Pole_pairs.mp4" type="video/mp4">
+				Your browser does not support HTML video.
+			</video>
+		</div>
+	</div>
+	
+	<p class="center"> The reasoning is pretty straight forward by using DC voltage phase A would be North and Phase B and C would be South. The permanent magnet's South would be attracted to the stator North.</p>
+	
+	<div class="content-center">
+		<h3 id="stator_resistance">Stator resistance \(R_s\)</h3>
+		<p>The approach is quite straightforward: for a wye configuration measure the resistance of two phase wires to determine the phase-to-phase resistance.<br> 
+		For better accuracy, use an LCR meter or, if available, an mOhm meter. To find the phase-to-neutral resistance, simply divide the phase-to-phase resistance by 2.</p>
+	</div>
+	
+	 <figure>
+		<p><img src="Motor_parameters/Rs.jpeg" alt="Rs"></p>
+        <figcaption>Photo: Hitesh Dialani</figcaption>
+     </figure>
+	
+	<h3 id="back_emf" class="center">Back-emf \(K_e\)</h3>
+	
+	<div class="content-center">
+		<p>The equipment required to measure the BEMF constant are listed below:</p>
+		<ul class="centered-list">
+			<li>Oscilloscope and at least one voltage probe</li>
+			<li>Driving motor,hand drill machine or electrical tape (Jianning's method)</li>
+		</ul>
+	</div>
+
+	<div class="content-center">
+		<p>The steps given below must be followed to determine the BEMF constant</p>
+		<ol class="centered-list">
+			<li>Spin the motor</li>
+			<li><b>One-phase measurement:</b> Measure the generated phase voltage (between one phase terminal and the neutral point of the motor). <br> 
+			 Usually, the neutral point is not accessible; then measure the line-to-line voltage.<br><br>
+			<b>Three-phase measurement:</b>If the neutral point is not accessible,<br> it’s possible to create the artificial neutral point from all three voltage probe clips connected together</li>
+		</ol>
+	</div>
+	
+	<div class="content-center">	
+		<p>For single-phase measurement(line-to-line voltage measurement): </p>
+		<p style="font-size: 20px;">\(\lambda_{pm-ph}=\frac{V_{pk-pk}\cdot t_{el}}{\sqrt{3} \cdot 4 \pi} [\frac{V\cdot s}{rad}] \)</p> 
+		<p>For three-phase measurement (phase voltage measurement): </p>
+		<p style="font-size: 20px;">\(\lambda_{pm}=\frac{V_{pk-pk}\cdot t_{el}}{4 \pi} [\frac{V\cdot s}{rad}] \)</p>
+		<p>Here \(t_{el}\) is the time for a single electrical cycle </p> 		
+	</div>	
+	
+	<div class="content-center">
+		<p>The above equation is from <a href="AN4680.pdf" target="_blank">AN4680</a>  But I want to find \(K_e\), so I can use the below equation to convert it </p>
+		<p style="font-size: 20px;">\(K_{e}=\frac{\lambda_{pm}\cdot 1000 \cdot \sqrt{3}\cdot p \cdot 2 \pi}{60} [\frac{V}{KRPM}] \)</p>
+		<p> Here \(p\) represents the number of pole-pairs,\(\sqrt{3}\) accounts for the conversion from line-to-line voltage to line-to-neutral voltage,<br> \(\frac{2 \pi}{60}\) is used to convert from radians per second to RPM, and finally, 1000 is used to represent KRPM</p>  		
+		<p style="font-size: 20px;"> Combining the above two equations gives </p>
+		<p style="font-size: 20px;">\(K_{e}=\frac{V_{pk-pk}\cdot t_{el} \cdot 1000 \cdot \sqrt{3}\cdot p  }{2 \cdot 60} [\frac{V}{KRPM}] \)</p>
+		<p> To spin the motor I used Jianning's method. Which is add multiple turns of electrical tape around the rotor and then let it spin.<br> Just make sure to setup the scope to capture few cycles beyond threshold. Below shows the setup (without tape) and results</p>	
+	</div>
+	
+	<div class="image-container">
+		<img src="Motor_parameters/Back_emf_setup.png" alt="Image 2">
+		<img src="Motor_parameters/Back_emf_peak.png" alt="Image 1" >
+		<img src="Motor_parameters/Back_emf_time.png" alt="Image 3">
+	</div>
+			<figcaption>Photo: Hitesh Dialani</figcaption>
+	
+	<div class="content-center">
+		<p>It took a lot of tries to get the above image, so I took that for my calculation. </p>
+		<p style="font-size: 20px;">\(K_{e}=\frac{8.64\cdot 9.55 \cdot \sqrt{3}\cdot 4 }{2\cdot60}= 4.73 [\frac{V}{KRPM}]\)</p>
+	</div>
+ 
+ 	<div class="content-center">
+		<h3 id="inductance">Inductance</h3>
+		<p> <b> This one is the biggest headache to measure. </b></p>
+		<p> For an interior permanent magnet synchronous motor (IPMSM) (\(L_d < L_q\)), while for a surface permanent magnet synchronous motor (SPMSM) (\(L_d \approx L_q\))</p>
+		<p> Since I had a SPMSM I chose the easy way out and only find \(L_d\). I will explain both methods but only did \(L_d\)</p>
+		<p>lign. Now \(L_{q}=0\) so only \(L_{d}\) is present </li> 			
+			<li> Get a clamp and start clamping the rotor fixed.<b>If it slighly moves this will effect your measurement </b> </li>		
+			<li> Turn off the power supply</li>			
+			<li> Put current probe over phase A</li>		
+			<li> Place - terminal to phase A and + terminal to phases B and C</li>	
+			<li> Set the oscilloscope to single mode trigger</li>
+			<li> Set voltage look into <a href="AN4680.pdf" target="_blank">AN4680</a> for the full explanation</p>
+	</div>	 
+
+	<div class="content-center">
+		<h4 id="inductance_direct">Inductance direct \(L_d\)</h4>
+		<p>The steps are from <a href="AN4680.pdf" target="_blank">AN4680</a></p>
+		<ol class="centered-list">
+			<li> Set the current limit to 10% of \(I_{rated}\) and the voltage limit to 24V</li>
+			<li> Place + terminal to phase A and - terminal to phases B and C</li> 
+			<li> Turn on the power supply</li>
+			<li> Wait till al probe over phases B and C and connect the ground clip to phase A</li>
+			<li> Turn on the power supply</li>
+			<li> Look at measurement</li>			
+		</ol>
+		<p> I followed the steps abive but got the result below.</p>	
+	</div>
+	
+	<div class="image-container">
+		<img src="Motor_parameters/LD_setup.png" alt="Image 1" >
+		<img src="Motor_parameters/LD_incorrect_mechanical.png" alt="Image 2" >
+	</div>
+			<figcaption>Photo: Hitesh Dialani. The left is the setup and right is the first measurement result for Ld</figcaption>
+			
+	<p class="center">The result did not match the result shown in <a href="AN4680.pdf" target="_blank">AN4680</a>. Turns out it was the power supply, the one I used had took too long to sent the step respond.</p>	
+	
+	<div class="image-container">
+		<img src="Motor_parameters/Powersupply_slow.jpg" alt="Image 2" >
+		<img src="Motor_parameters/Powersupply_fast.jpg" alt="Image 1" >
+	</div>
+		<figcaption>Photo: Hitesh Dialani. The left power-supply made the result above. Right made the result below.</figcaption>
+
+	<div class="image-container">
+		<img src="Motor_parameters/LD_correct_low_CC.png" alt="Image 2" >
+		<img src="Motor_parameters/LD_correct.png" alt="Image 1" >
+	</div>
+			<figcaption>Photo: Hitesh Dialani. The left has CC limit at 10% and right has 30%.</figcaption>
+
+	
+	<div class="content-center">
+		<h4 id="inductance_quadrature">Inductance quadrature \(L_q\)</h4>
+		<p>After the amount of time it took to find \(L_q\) and since this is a SPMSM \(L_d\) should almost be the same so I didn't bother to find \(L_d\).  </p>		
+	</div>
+
+	<div class="content-center">	
+		<h2 id="simulink">Using Simulink Provided Models</h2>
+        <p> I followed this <a href="https://nl.mathworks.com/videos/field-oriented-control-of-pmsms-with-simulink-part-1-motor-parameter-estimation-1582784941538.html?" target="_blank">Matlab video</a>. Make sure to have all the needed software. You can do it sensorless.
+		<br> If you do sensor measurment you need to do  <a href="https://nl.mathworks.com/help/mcb/gs/quadrature-encoder-offset-calibration-pmsm-motor.html" target="_blank">Quadrature Encoder Offset Calibration for PMSM</a> first to find the position offset.
+		<br>Slits=counts/revolution *1/4. For M-2310P-LN-04K it has 4000 counts/revolution, so it has 1000 slits.
+		<br> Both sensor and sensorlesss give about the same result.</p>
+		<div class="center">
+			<table border="1">
+				<tr>
+					<th>Parameter</th>
+					<th>Value</th>
+					<th>Unit</th>
+				</tr>
+				<tr>
+					<td>\(R_s\)</td>
+					<td>\(0.53\)</td>
+					<td>\(\Omega\)</td>
+				</tr>
+				<tr>
+					<td>\(L_d\)</td>
+					<td>\(0.162\)</td>
+					<td>\(mH\)</td>
+				</tr>
+				<tr>
+					<td>\(L_q\)</td>
+					<td>\(0.167\)</td>
+					<td>\(mH\)</td>
+				</tr>
+				<tr>
+					<td>Bemf \(K_e\)</td>
+					<td>\(4.67\)</td>
+					<td>\(V_{peak}/kRPM\)</td>
+				</tr>
+				<tr>
+					<td>Motor inertia \(J\) </td>
+					<td>\(4.53\cdot 10^{-5}\)</td>
+					<td>\(N\cdot m\cdot s\)</td>
+				</tr>
+				<tr>
+					<td>Frictional constant\(B_v\)</td>
+					<td>\(9.76\cdot 10^{-6}\)</td>
+					<td>\(kg\cdot m^2\)</td>
+				</tr>
+			</table>
+		</div>
+	</div>	
+	 
+	<div class="content-center">	
+		<h2 id="simulink">Using Simulink Provided Models</h2>
+        <p> All results are shown below </p>
+		<div class="center">
+			<table border="1">
+				<tr>
+					<th>Parameter</th>
+					<th>Datasheet</th>
+					<th>Manually</th>					
+					<th>Simulink</th>
+					<th>Unit</th>
+				</tr>
+				<tr>
+					<td>\(p\)</td>
+					<td>\(4\)</td>
+					<td>\(4\)</td>
+					<td>-</td>
+					<td> </td>					
+				</tr>				
+				<tr>
+					<td>\(R_s\)</td>
+					<td>\(0.36\)</td>					
+					<td>\(0.55\)</td>					
+					<td>\(0.53\)</td>
+					<td>\(\Omega\)</td>
+				</tr>
+				<tr>
+					<td>\(L_d\)</td>
+					<td>\(0.20\)</td>
+					<td>\(0.19\)</td>					
+					<td>\(0.162\)</td>
+					<td>\(mH\)</td>
+				</tr>
+				<tr>
+					<td>\(L_q\)</td>
+					<td>\(0.20\)</td>
+					<td>\(0.19\)</td>						
+					<td>\(0.167\)</td>
+					<td>\(mH\)</td>
+				</tr>
+				<tr>
+					<td>Bemf \(K_e\)</td>
+					<td>\(4.67\)</td>					
+					<td>\(4.67\)</td>					
+					<td>\(4.67\)</td>
+					<td>\(V_{peak}/kRPM\)</td>
+				</tr>
+				<tr>
+					<td>Motor inertia \(J\) </td>
+					<td>-</td>					
+					<td>-</td>					
+					<td>\(4.53\cdot 10^{-5}\)</td>
+					<td>\(N\cdot m\cdot s\)</td>
+				</tr>
+				<tr>
+					<td>Frictional constant\(B_v\)</td>
+					<td>-</td>					
+					<td>-</td>					
+					<td>\(9.76\cdot 10^{-6}\)</td>
+					<td>\(kg\cdot m^2\)</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<p class="center">The inductance is frequency dependent. The simulink uses \(20kHz\), while the others use a DC source.
+	<br> Below shows a graph someone made regarding inductance over a range of frequency.</p>
+	
+	 <figure>
+		<p><img src="Misc/Inductance_frequency.jpg" alt="I_vs_f"></p>
+        <figcaption><a href="https://www.christidis.info/index.php/blog/54-ti-2mtr-dyno-motor-characteristics" target="_blank">Source</a></figcaption>
+     </figure>
+	 		
+	<h1 id="dyno_assembly" class="center">Dyno assembly</h1>	 
+	<div class="image-container">
+		<img src="Assembly/Oldham_coupling_assembled.jpeg" alt="Image 1">
+		<img src="Assembly/Oldham_coupling_dimensions.jpeg" alt="Image 2" >
+		<img src="Assembly/Oldham_coupling_instructions.jpeg" alt="Image 3">
+	</div>
+			<figcaption>Oldham coupling</figcaption>
+			
+	<p> There is an <a href="https://www.ruland.com/oldham-coupling-install" target="_blank">installation video</a> but that is more for how to it for a professional setup. For this setup we just use allen keys and no spacer tool. </p>		
+	<div class="image-container">
+		<img src="Assembly/2_PMSM_Dyno.png" alt="Image 1">
+		<img src="Assembly/Induction_PMSM_Dyno.jpeg" alt="Image 2" >
+	</div>
+			<figcaption>Dyno assembled: PMSM-PMSM (left) PMSM-induction(right)</figcaption>		
+				
+	</div>
+</body>
+</html>

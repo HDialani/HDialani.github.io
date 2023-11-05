@@ -1,0 +1,87 @@
+header {
+    margin-top: 50px;
+    text-align: center; 
+}
+
+.content-center, .center, .item {
+    text-align: center;
+}
+
+.center table {
+    margin: 0 auto;
+}
+
+.image-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.image-container img {
+    max-width: 40%; 
+    height: auto;
+}
+
+.top-and-bottom {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+}
+
+.centered-list {
+    text-align: left;
+    list-style-position: inside;
+    margin-left: 500px; /* Adjust the margin-left value as needed to move items to the right */
+    padding: 0; /* Remove default padding */
+}
+
+#scrollToTopButton {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 24px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px; /* Adjust the width as needed */
+            height: 100%;
+            background-color: #333;
+            overflow-y: auto;
+            color: #fff;
+}
+
+.sidebar a {
+            padding: 10px;
+            text-decoration: none;
+            display: block;
+            color: #fff;
+}
+
+.sidebar a:hover {
+            background-color: #007bff;
+}
+
+.main-content {
+            margin-left: 270px; /* Adjust to match the sidebar width + some margin */
+            padding: 20px;
+}
+
+a {
+    color: blue; /* or your preferred link color */
+    text-decoration: none; /* This removes the default underline */
+}
+
+a:hover {
+    text-decoration: underline; /* This adds an underline when hovering over the link */
+}
