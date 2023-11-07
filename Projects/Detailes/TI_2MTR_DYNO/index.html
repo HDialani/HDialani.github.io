@@ -36,6 +36,7 @@
 					<li><a href="#wiring">Wiring</a></li>
 					<li><a href="#software">Software</a></li>				
 				</ul>
+            <li><a href="#equation_for_simulation">Equation for Simulation</a></li>					
             <li><a href="#extract-motor-parameters">Extract Motor Parameters</a></li>				
 				<ul>
 					<li><a href="#datasheet">Datasheet</a></li>
@@ -233,17 +234,22 @@
 	 
 	<div class="content-center">
 		<p> The blue wire on the bottom is ground. The red is PVDD (Power). The BoostXL-drv8305 does <b>not</b> have reverse voltage protection so don’t mix them up.<br> 
-		 I added brown electrical tape to represent phase A motor side. Green is phase B and black tape is phase C.
-		Mixing up phases can cause the motor to spin the opposite direction. </p> 
+		 I added brown electrical tape to represent phase A motor side. Green is phase B and black tape is phase C. Mixing up phases can cause the motor to spin the opposite direction. </p> 
 	</div>
 	
 	<div class="content-center">
 		<h2 id="software">Software</h2>
-		<p>Make sure you can already do the <a href="https://nl.mathworks.com/videos/getting-started-with-c2000-microcontroller-blockset-1691473750888.html?s_tid=vid_pers_recs" target="_blank">Blinky example</a> from Matlab. Ps you need Control suite,Code composer studio and Embedded coder, don't forger Control suite from TI.</p>
+		<p>Make sure you can already do the <a href="https://nl.mathworks.com/videos/getting-started-with-c2000-microcontroller-blockset-1691473750888.html?s_tid=vid_pers_recs" target="_blank">Blinky example</a> from Matlab.
+    		Ps you need Control suite,Code composer studio and Embedded coder, don't forger Control suite from TI.</p>
 	</div>
+
+    <h1 id="equation_for_simulation" class="center">Equations for Simulations</h1>
+    <p class="center">  I will give some equations needed for modeling, I want to keep this page short so I will not derive it here. My extra project paper has the entire derivation. 
+	 The produced electrical torque is \(T_e= p \frac{3}{2}\lambda_m i_q+(L_d- L_q)i_d i_q\). Here \(p\) is pole pairs. The 3/2 is for the amplitude invarient model. The motor speed is \(\omega= \int_{a}^{b} \frac{1}{J} \cdot (T_e-B_f \cdot \omega -T_{load} )\,dt \). Here \(J\) is the motor inertia and \(B_f\) is the viscous friction coefficient. </p>
+	
 	
     <h1 id="extract-motor-parameters" class="center">Extract Motor Parameters</h1>
-    <p class="center">  There are 3 different ways to find the motor parameters. datasheet, manually and </p>
+    <p class="center">  There are 3 different ways to find the motor parameters: datasheet, manually and using Simulink embedded code</p>
 
 
 	<div class="content-center">
@@ -530,7 +536,7 @@
 	</div>
 
 	<p class="center">The inductance is frequency dependent. The simulink uses \(20kHz\), while the others use a DC source.
-	<br> Below shows a graph someone made regarding inductance over a range of frequency.</p>
+	<br> Below shows a graph someone made regarding inductance over a range of frequency. This explains the difference in inductance. The datasheet does not include the resistance of the cable, hence why that one is less.</p>
 	
 	 <figure>
 		<p><img src="Misc/Inductance_frequency.jpg" alt="I_vs_f"></p>
