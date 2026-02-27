@@ -1,89 +1,146 @@
-/* Define styles for unvisited links */
-a:link {
-    color: blue;
-    text-decoration: none; /* Remove underline if desired */
+/* =========================
+   Global Reset & Base
+   ========================= */
+
+* {
+    box-sizing: border-box;
 }
 
-/* Define styles for visited links */
+body {
+    margin: 0;
+    padding-top: 70px; /* space for fixed navigation */
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f5f7fb;
+    color: #1f2937;
+    line-height: 1.6;
+}
+
+/* =========================
+   Link Styling
+   ========================= */
+
+a {
+    text-decoration: none;
+}
+
+a:link,
 a:visited {
-    color: blue; /* Set the color to blue for visited links */
+    color: #2563eb;
 }
 
-/* Define styles for hovered links */
 a:hover {
-    color: purple; /* Change color on hover if desired */
+    color: #1e40af;
 }
 
-#home-box {
-    position: absolute;
+/* =========================
+   Navigation Bar
+   ========================= */
+
+#Home-box,
+#Education-box,
+#Experience-box,
+#Projects-box {
+    position: fixed;
     top: 0;
-    left: 0;
-    background-color: #007bff; /* Blue background color, you can change this */
-    color: #fff; /* Text color */
-    padding: 10px; /* Adjust padding as needed */
+    background-color: #2563eb;
+    padding: 10px 14px;
+    z-index: 1000;
 }
 
-#home-box a {
-    text-decoration: none;
-    color: #fff; /* Link color */
-    font-weight: bold;
-    font-size: 18px;
+#Home-box { left: 0; }
+#Education-box { left: 90px; }
+#Experience-box { left: 200px; }
+#Projects-box { left: 330px; }
+
+#Home-box a,
+#Education-box a,
+#Experience-box a,
+#Projects-box a {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 16px;
 }
 
-#education-box {
-    position: absolute;
-    top: 0;
-    left: 67px; /* Adjust the left value to move the Education block to the right */
-    background-color: #007bff; /* Blue background color, you can change this */
-    color: #fff; /* Text color */
-    padding: 10px; /* Adjust padding as needed */
+#Home-box a:hover,
+#Education-box a:hover,
+#Experience-box a:hover,
+#Projects-box a:hover {
+    opacity: 0.85;
 }
 
-#education-box a {
-    text-decoration: none;
-    color: #fff; /* Link color */
-    font-weight: bold;
-    font-size: 18px;
-}
-#experience-box {
-    position: absolute;
-    top: 0;
-    left: 168px; /* Adjust the left value to move the Education block to the right */
-    background-color: #007bff; /* Blue background color, you can change this */
-    color: #fff; /* Text color */
-    padding: 10px; /* Adjust padding as needed */
+/* =========================
+   Header
+   ========================= */
+
+header h1 {
+    text-align: center;
+    margin: 40px 0 20px;
+    letter-spacing: 2px;
+    font-size: 2rem;
 }
 
-#experience-box a {
-    text-decoration: none;
-    color: #fff; /* Link color */
-    font-weight: bold;
-    font-size: 18px;
+/* =========================
+   Experience Cards
+   ========================= */
+
+.middle-block {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 25px 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+    text-align: left;
 }
 
-/* Style for the project dropdown container */
-#project-box {
-    position: absolute;
-    top: 0;
-    left: 277px; /* Adjust the left value to position the dropdown */
-    background-color: #007bff;
-    color: #fff;
-    padding: 5px;
-    border-radius: 5px;
+.middle-block h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
 }
 
-#project-box  a {
-    text-decoration: none;
-    color: #fff; /* Link color */
-    font-weight: bold;
-    font-size: 18px;
+.middle-block p {
+    margin: 6px 0;
+    color: #374151;
 }
+
+.middle-block em {
+    font-style: normal;
+    color: #4b5563;
+}
+
+/* =========================
+   Separator
+   ========================= */
+
+.separator {
+    border: none;
+    height: 1px;
+    max-width: 900px;
+    margin: 20px auto;
+    background: linear-gradient(
+        to right,
+        transparent,
+        #d1d5db,
+        transparent
+    );
+}
+
+/* =========================
+   Utility
+   ========================= */
 
 .center {
     text-align: center;
 }
 
-.middle-block {
-    text-align: center;
-    margin: 0 auto; /* Center the block horizontally */
+.cover-image {
+    width: 150px;          /* adjust size */
+    height: auto;          /* maintain aspect ratio */
+    position: absolute;    /* position relative to page */
+    top: 80px;             /* distance from top (adjust if needed) */
+    right: 20px;           /* distance from right */
+    border-radius: 8px;    /* optional: rounded corners */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* optional shadow */
 }
