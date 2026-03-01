@@ -63,31 +63,40 @@ a:hover {
 }
 
 /* =========================
-   CV Dropdown Logic
+   Global Dropdown Logic
    ========================= */
-.cv-dropdown {
+
+/* The container holding the button and the menu */
+.dropdown {
     position: fixed;
     top: 0;
-    left: 90px;
     z-index: 1001;
 }
 
-#CV-box {
-    position: relative;
+/* The button itself */
+.dropdown-button {
     background-color: #2563eb;
     padding: 10px 14px;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 16px;
+    display: block;
+    cursor: pointer;
 }
 
+/* The menu (hidden by default) */
 .dropdown-content {
-    display: none; /* Hide by default */
+    display: none;                
     position: absolute;
-    top: 100%;      /* appears below the CV box */
+    top: 100%; /* Positions it directly below the button */
     left: 0;
     background-color: #2563eb;
     min-width: 150px;
     box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1002;
 }
 
+/* Menu links */
 .dropdown-content a {
     color: #ffffff;
     padding: 12px 16px;
@@ -101,8 +110,8 @@ a:hover {
     background-color: #1e40af;
 }
 
-/* Show the menu when hovering over the container */
-.cv-dropdown:hover .dropdown-content {
+/* Show the menu on hover */
+.dropdown:hover .dropdown-content {
     display: block;
 }
 

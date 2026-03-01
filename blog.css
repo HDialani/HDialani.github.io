@@ -1,0 +1,95 @@
+/* =========================
+   Blog Page Specific Styling
+   ========================= */
+
+.project-container {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 30px;
+}
+
+/* Sidebar Navigation */
+.project-sidebar {
+    width: 250px;
+    flex-shrink: 0;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    /* Makes the sidebar stay in place while scrolling */
+    position: sticky;
+    top: 80px; 
+    height: calc(100vh - 100px);
+    overflow-y: auto;
+}
+
+.project-sidebar h2 {
+    font-size: 1.2rem;
+    margin-top: 0;
+    color: #1e40af;
+}
+
+.project-sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.project-sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.project-sidebar ul li a {
+    color: #374151;
+    font-weight: 500;
+    display: block;
+    padding: 5px 0;
+}
+
+.project-sidebar ul li a:hover {
+    color: #2563eb;
+    text-decoration: underline;
+}
+
+/* Main Content Area */
+.project-main {
+    flex: 1;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.project-main h1 {
+    margin-top: 0;
+    color: #111827;
+}
+
+.project-main h2 {
+    color: #1e40af;
+    margin-top: 40px;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 10px;
+}
+
+.project-main img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 20px 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Responsive behavior */
+@media (max-width: 900px) {
+    .project-container {
+        flex-direction: column;
+    }
+    .project-sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+}
