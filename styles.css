@@ -144,3 +144,19 @@ header h1 {
     border-radius: 8px;    /* optional: rounded corners */
     box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* optional shadow */
 }
+
+.experience-list {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.experience-list li {
+    margin-bottom: 8px;
+    color: #4b5563;
+}
+
+.main-container {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
