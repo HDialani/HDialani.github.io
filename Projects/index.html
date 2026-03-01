@@ -1,37 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-	<title>Projects · Hitesh Dialani</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Projects · Hitesh Dialani</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../style.css">
 </head>
 <body>
-	<section id="Home-box">
-        <a href="../index.html">Home</a>
-    </section>
-	<section id="Education-box">
-		<a href="../Education/index.html">Education</a>
-	</section>
-	<section id="Experience-box">
-		<a href="index.html">Experience</a>
-	</section>		
-    <section id="Projects-box">
-        <a href="index.html">Projects</a>
-    </section>	
+
+<!-- =========================
+     Navigation Bar (Blue Boxes)
+========================= -->
+<section id="Home-box">
+    <a href="../index.html">Home</a>
+</section>
+
+<section id="CV-box" class="cv-dropdown">
+    <a href="#">CV</a>
+    <div class="dropdown-content">
+        <a href="../CV/education.html">Education</a>
+        <a href="../CV/experience.html">Experience</a>
+        <a href="../CV/publications.html">Publications</a>
+    </div>
+</section>
+
+<section id="Projects-box" class="projects-dropdown">
+    <a href="#">Projects</a>
+    <div class="dropdown-content">
+        <a href="Research/index.html">Research</a>
+        <a href="Education/index.html">Education</a>
+        <a href="Personal/index.html">Personal</a>
+    </div>
+</section>
+
+    <!-- =========================
+         Projects Grid
+    ========================= -->
     <div class="blog-grid">
+
+        <!-- Thesis Project -->
         <div class="blog-item">
-            <a href="Detailes\Thesis\index.html">
-                <img src="Thesis.jpeg" alt="Master thesis">
-                <p>I did this for my master thesis</p>
-            </a>
-        </div>	
-        <div class="blog-item">
-            <a href="Detailes\TI_2MTR_DYNO\index.html">
-                <img src="TI_2MTR_DYNO_motor.jpeg" alt="Sensor-less PMSM project">
-                <p>I completed an encoder-less motor control project as part of my master's degree, earning 15 ECTS</p>
+            <a href="Detailes/Thesis/index.html">
+                <img src="Thesis.jpeg" alt="Master Thesis">
+                <p>Master thesis project completed during my degree</p>
             </a>
         </div>
-        <!-- Repeat this structure for more blog items -->
+
+        <!-- Encoder-less Motor Project -->
+        <div class="blog-item">
+            <a href="Detailes/TI_2MTR_DYNO/index.html">
+                <img src="TI_2MTR_DYNO_motor.jpeg" alt="Sensor-less PMSM project">
+                <p>Encoder-less motor control project (15 ECTS) for my master's degree</p>
+            </a>
+        </div>
+
+        <!-- Example Additional Project -->
+        <div class="blog-item">
+            <a href="Detailes/Example_Project/index.html">
+                <img src="Example.jpeg" alt="Example Project">
+                <p>Another project description goes here</p>
+            </a>
+        </div>
+
+        <!-- Add more projects by repeating this structure -->
     </div>
+
 </body>
 </html>
