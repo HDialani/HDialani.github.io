@@ -9,12 +9,13 @@
 </head>
 <body>
 
+    
     <div class="navbar">
         <section id="Home-box">
-            <a href="../index.html">Home</a>
+            <a href="../../index.html">Home</a>
         </section>
         
-        <div class="dropdown">
+        <div class="dropdown" style="left: 90px;">
             <span class="dropdown-button">CV ▾</span>
             <div class="dropdown-content">
                 <a href="../Education/Education_index.html">Education</a>
@@ -33,32 +34,430 @@
             <h2>Contents</h2>
             <ul>
                 <li><a href="#overview">Project Overview</a></li>
+                <li><a href="#design">System Architecture</a></li>
+                <li><a href="#SM_design">SM Design</a></li>
+                <li><a href="#controller">Central Controller</a></li>
                 <li><a href="#results">Results</a></li>
+                <li><a href="#references">References</a></li>
             </ul>
-        </aside>
+
+            <footer class="footer">
+                <div class="footer-left">Hitesh Dialani</div>
+                <div class="footer-right">© 2026 · Built with HTML, CSS & JavaScript</div>
+            </footer>
+    </aside>
         
-        <main class="project-main">
+    <main class="project-main">
             <h1>Modular Multilevel Converter (MMC)</h1>
             
             <p>Custom MMC hardware built in house for reaseach application.</p>
 
-            <img src="Cover.jpeg" alt="MMC Research Setup">
+                <figure id="fig-1" style="text-align: center; margin: 30px auto; max-width: 800px;"> 
+                    <img src="Pictures/MMC_tower.png" alt="MMC Research Setup" 
+                        style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    <figcaption style="margin-top: 10px; font-size: 0.9rem; color: #6b7280; font-style: italic;">
+                        Fig. 1: Assembled lab scale MMC tower (a) front-end, (b) back-end.
+                    </figcaption>
+                </figure>
 
             <h2 id="overview">Project Overview</h2>
-            <p>The MMC was already present but was configured as half-bridge, the system was now upgraded to full bridge, thus rewritting the firmware and rewiring the setup.</p>
-            
+                <p>
+                    The MMC was already present but was configured as a half-bridge system. 
+                    The setup was upgraded to a full-bridge configuration, which involved rewriting the firmware and rewiring the hardware setup.
+                    The SM PCB thankfully did not have to be modified.
+                </p>
+                
+                <h2 id="design">System Architecture</h2>
+                <p>
+                The proposed MMC consists of SMs, with each phase comprising two identical arms, referred to as upper and lower.
+                In the configuration examined, each arm includes four SMs, yielding a total of 24 SMs for the three-phase system. 
+                The arms are interconnected through custom inductors designed to filter arm currents and assist in load-side control. 
+                Each SM incorporates a capacitor connected to the DC bus, supporting either a FB or HB topology
+                </p>
 
-            <h2 id="results">Results</h2>
-            <p>The completed working setup and explanation about how it was made is shown below. 
-            </p>
+                <p>
+                    <a href="#fig-2" style="color: #2563eb; text-decoration: underline;">Fig. 2</a> illustrates the top-level interconnection of the MMC tower and its physical implementation in <a href="#fig-1" style="color: #2563eb; text-decoration: underline;">Fig. 1</a>. 
+                    The central controller—an OPAL-RT OP5600 real-time simulator—executes Simulink models in hardware-in-the-loop (HIL) operation, coordinating all 24 SM controllers and enabling real-time parameter tuning. 
+                    Each SM’s local controller is implemented using a Xilinx XC95144XL complex programmable logic device (CPLD), programmable via JTAG. 
+                    Fiber-optic links provide galvanic isolation and mitigate electromagnetic interference (EMI) between the OPAL-RT and CPLDs, while a custom PCB employing the AFBR-1624Z transmitter and AFBR-2624Z receiver performs electrical-to-optical signal conversion.
+                </p>
+
+                <figure id="fig-2" style="text-align: center; margin: 30px auto; max-width: 600px;">
+                    <img src="Pictures/MMC_interface2.svg" alt="MMC Control and Interface Diagram" 
+                        style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    <figcaption style="margin-top: 10px; font-size: 0.9rem; color: #6b7280; font-style: italic;">
+                        Fig. 2: Top-level interconnection of the MMC tower, showing series-connected SMs, upper and lower arms per phase, and the interface with the central controller.
+                    </figcaption>
+                </figure>
+
+                <p>
+                    Each SM receives three fiber optic inputs: one <strong>Enable</strong> signal and two complementary PWM signals, 
+                    and returns two outputs: a fault signal and a frequency-modulated PWM that represents the capacitor voltage 
+                    (V<sub>cap</sub>). The modulation is implemented using an <strong>LTC6990</strong> chip, which performs both 
+                    ADC conversion and frequency encoding, thereby reducing circuit complexity and minimizing latency. 
+                    The OPAL-RT system reconstructs V<sub>cap</sub> via a predefined lookup table. To distinguish disconnected 
+                    cables or failed SMs from a true 0 V condition, a frequency of 0 Hz is reserved for the disconnected state. 
+                    Examples of measured V<sub>cap</sub> values and their corresponding output frequencies for four SMs 
+                    are shown in <a href="#fig-3" style="color: #2563eb; text-decoration: underline;">Fig. 3</a>.
+                </p>
+
+
+                <figure id="fig-3" style="text-align: center; margin: 40px auto; max-width: 600px;">
+                    <img src="Pictures/Vcap_freq.svg" alt="Measured Vcap values and output frequencies" style="width: 100%; height: auto;">
+                    <figcaption style="margin-top: 12px; font-size: 0.95rem; color: #6b7280; font-style: italic;">
+                        Fig. 3: Measured frequency response used to encode V<sub>cap</sub> on an SM PCB. The reserved 0 Hz state detects disconnected cables or faulty SMs.
+                    </figcaption>
+                </figure>
+
+                <p>
+                    Analog signals, including arm currents (I<sub>arm</sub>), arm voltages (V<sub>arm</sub>), 
+                    and DC bus voltage (V<sub>bus</sub>), are measured with <strong>S-6NP</strong> and 
+                    <strong>LEM LV 25-P</strong> sensors and interfaced to OPAL-RT via the 
+                    <strong>OP8211</strong> analog module. Furthermore, real-time monitoring and 
+                    protection for over-temperature or over-voltage fault is implemented. 
+                    Communication between OPAL-RT and a user PC is handled via Ethernet using UDP/IP. 
+                    Isolated DC–DC converters power the SMs and sensors, and circuit breakers are included for safety.
+                </p>
+
+        <h2 id="SM_design">Submodule Design</h2>
             <p>
-                <strong>Publication:</strong> 
-                <a href="https://ieeexplore.ieee.org/abstract/document/11144660" target="_blank">
-                    Experimental Demonstrator of Full Bridge Modular Multilevel Converter for DC Grid Applications | IEEE Conference Publication | IEEE Xplore
-                </a>
+                Each SM includes a main board and a capacitor board, illustrated in 
+                <a href="#fig-4" style="color: #2563eb; text-decoration: underline;">Fig. 4</a>. 
+                The main board uses a PS219B4-S power module with integrated drivers, protection, and temperature sensing, 
+                supporting both FB and HB operation via the CPLD. 
+                The capacitor board contains the bus capacitor and discharge resistors, and a simplified schematic is shown in 
+                <a href="#fig-5" style="color: #2563eb; text-decoration: underline;">Fig. 5</a>.
+                To ensure proper thermal management, a heatsink is mounted on top of the PM and secured using a torque wrench, ensuring consistent clamping force and enhanced reliability.
             </p>
-        </main>
-    </div>
 
+            <figure id="fig-4" style="text-align: center; margin: 30px auto; max-width: 600px;">
+                <img src="Pictures/MMC_PCB_render.svg" alt="MMC Submodule PCB Render" 
+                    style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                <figcaption style="margin-top: 10px; font-size: 0.9rem; color: #6b7280; font-style: italic;">
+                    Fig. 4: Rendered view of the MMC submodule (SM) showing the main board and capacitor board.
+                </figcaption>
+            </figure>
+
+            <figure id="fig-5" style="text-align: center; margin: 30px auto; max-width: 700px;">
+                <img src="Pictures/MMC_PCB_schematic.svg" alt="MMC Submodule Simplified Schematic" 
+                    style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                <figcaption style="margin-top: 10px; font-size: 0.9rem; color: #6b7280; font-style: italic;">
+                    Fig. 5: Simplified schematic of the MMC submodule showing the PS219B4-S power module and capacitor board.
+                </figcaption>
+            </figure>
+
+            <h3 id="fault-indications">Hardware Protection</h3>
+            <p>
+                External SM-level circuits monitor overcurrent, capacitor overvoltage, and PM overtemperature, as shown in 
+                <a href="#fig-6" style="color: #2563eb; text-decoration: underline;">Fig. 6</a>. 
+                Hysteresis logic outputs a high signal during normal operation and a low signal when a fault is detected, ensuring fail-safe behavior even with loose or disconnected connections. 
+                Faults are indicated by LEDs and routed to the CPLD, which can disable PWM signals when required. 
+                Overcurrent protection directly disables the power module, bypassing the CPLD. 
+                The LED fault indications are summarized in 
+                <a href="#tab-1" style="color: #2563eb; text-decoration: underline;">Table 1</a>.
+            </p>
+
+            <figure id="fig-6" style="text-align: center; margin: 30px auto; max-width: 500px;">
+                <img src="Pictures/Hysterysis_safety.svg" alt="Opamp protection with Hysteresis" 
+                    style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                <figcaption style="margin-top: 10px; font-size: 0.9rem; color: #6b7280; font-style: italic;">
+                    Fig. 6: External hardware protection circuit used at the SM level for overcurrent, overvoltage, and overtemperature protection..
+                </figcaption>
+            </figure>
+
+
+            <p>
+                The LED fault indications are summarized in 
+                <a href="#tab-1" style="color: #2563eb; text-decoration: underline;">Table 1</a>.
+            </p>
+
+            <table id="tab-1" class="project-table">
+            <caption>TABLE 1: LED INDICATIONS AND FAULT CLASSIFICATIONS FOR EACH SM.</caption>
+            <thead>
+                <tr>
+                    <th>Condition</th>
+                    <th>Fault LED</th>
+                    <th>Safe LED</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Submodule Overcurrent</td>
+                    <td>Continuously ON</td>
+                    <td>OFF</td>
+                </tr>
+                <tr>
+                    <td>Capacitor Overvoltage</td>
+                    <td>Blinks at 1 Hz</td>
+                    <td>OFF</td>
+                </tr>
+                <tr>
+                    <td>PM Overtemperature</td>
+                    <td>Blinks at 10 Hz</td>
+                    <td>OFF</td>
+                </tr>
+                <tr>
+                    <td>Normal Operation</td>
+                    <td>OFF</td>
+                    <td>ON</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 id="fault-indications">Dead-Time Generation</h3>
+        <p>
+            The power module (PM) does not include built-in dead-time control. Instead of generating four PWM signals from the OPAL-RT, dead-time generation is implemented in the CPLD, which produces complementary PWM outputs with configurable dead-time from two input signals.
+        </p>
+
+        <p>
+            Dead-time is created using an external crystal oscillator and programmable logic in the CPLD. The oscillator clock is divided by a factor <em>K</em>, and a shift register advances one bit on each rising clock edge, shifting values through positions up to Q<sub>n</sub>.
+        </p>
+
+            <p>
+                AND gates together with the <em>Enable</em> signal control the complementary output generation, 
+                as summarized in <a href="#tab-2" style="color: #2563eb; text-decoration: underline;">Table 2</a>.
+            </p>
+
+            <table id="tab-2" class="project-table">
+            <caption>TABLE 2: PWM OUTPUT LOGIC FOR DEAD-TIME GENERATION.</caption>
+            <thead>
+                <tr>
+                    <th>Condition on Shift Register Bits</th>
+                    <th>PWM<sub>upper</sub></th>
+                    <th>PWM<sub>lower</sub></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>All Q<sub>i</sub> = 1</td>
+                    <td>HIGH</td>
+                    <td>LOW</td>
+                </tr>
+                <tr>
+                    <td>All Q<sub>i</sub> = 0</td>
+                    <td>LOW</td>
+                    <td>HIGH</td>
+                </tr>
+                <tr>
+                    <td>Otherwise</td>
+                    <td>LOW</td>
+                    <td>LOW</td>
+                </tr>
+            </tbody>
+            </table>
+
+            <p>
+                When the input PWM changes state, the shift register requires <em>N − 1</em> clock cycles to realign its bits. 
+                During this interval both outputs remain LOW, creating the required dead-time. 
+                The resulting signal is combined with the <em>Enable</em> input from OPAL-RT to disable both PWM outputs during this period, as illustrated in 
+                <a href="#fig-7" style="color: #2563eb; text-decoration: underline;">Fig. 7</a>.
+            </p>        
+
+            <figure id="fig-7" style="text-align: center; margin: 30px auto; max-width: 700px;">
+                <img src="Pictures/Dead-time.svg" alt="Dead Time CPLD" 
+                    style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                <figcaption style="margin-top: 10px; font-size: 0.9rem; color: #6b7280; font-style: italic;">
+                    Fig. 6: Dead-time generation implemented on the CPLD produces complementary PWM outputs with configurable dead-time using an external clock, counters, and shift registers.
+                </figcaption>
+            </figure>
+
+            <p>
+                A dedicated debug connector provides access to key signals for troubleshooting, while isolated power supplies ensure electrical separation between SMs.
+            </p>
+
+
+        <h2 id="controller">Central Controller</h2>
+            <p>
+                The MMC prototype operates according to the parameters summarized in 
+                <a href="#tab-mn" style="color: #2563eb; text-decoration: underline;">Table 2</a>, 
+                which lists the nominal and maximum ratings of key system quantities.
+                The physical MMC is controlled by an independent central system, which runs a Simulink-based controller in OPAL-RT.
+            </p>
+
+
+            <div class="table-container">
+            <table id="tab-mn" class="project-table">
+                <caption>TABLE 3: MMC OPERATIONAL CHARACTERISTICS.</caption>
+                <thead>
+                    <tr>
+                        <th>Symbols</th>
+                        <th>Item</th>
+                        <th>Value</th>
+                        <th>Max<sup>§</sup></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>N</td>
+                        <td>Number of SMs</td>
+                        <td>4</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>V<sub>dc</sub></td>
+                        <td>Pole-to-pole DC voltage</td>
+                        <td>100 V</td>
+                        <td>800 V</td>
+                    </tr>
+                    <tr>
+                        <td>V<sub>SM</sub></td>
+                        <td>Applied IGBT Voltage</td>
+                        <td>25 V</td>
+                        <td>200 V</td>
+                    </tr>
+                    <tr>
+                        <td>C<sub>SM</sub></td>
+                        <td>SM capacitance</td>
+                        <td>4 mF<sup>*</sup></td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>L<sub>arm</sub></td>
+                        <td>Arm Inductance</td>
+                        <td>4.3 mH</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>R<sub>arm</sub> (R)</td>
+                        <td>Arm resistance</td>
+                        <td>0.178 Ω<sup>‡</sup></td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>f<sub>sw</sub> (PSC)</td>
+                        <td>Switching frequency</td>
+                        <td>1000 Hz</td>
+                        <td>10 kHz</td>
+                    </tr>
+                    <tr>
+                        <td>f<sub>Control</sub> (NLM)</td>
+                        <td>Transition rate of controller</td>
+                        <td>1500 Hz</td>
+                        <td>10 kHz</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="font-size: 0.85rem; color: #6b7280; margin-top: -20px; margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <p style="margin-bottom: 5px;"><sup>§</sup> Maximum rated value of the prototype.</p>
+                <p style="margin-bottom: 5px;"><sup>*</sup> It can be redesigned as it is a separate PCB attachable to the main SM board.</p>
+                <p style="margin-bottom: 5px;"><sup>‡</sup> Estimated resistance of the arm inductor at 50 Hz and rated operating condition.</p>
+            </div>
+        </div>
+
+            <p>
+                As shown in <a href="#fig-6" style="color: #2563eb; text-decoration: underline;">Fig. 6</a>, 
+                communication between the SMs and the central controller uses digital HP1 and HP2 gate signals, an 
+                <em>Enable</em> signal, and analog current and voltage measurements.
+            </p>
+
+            <p>
+                The general control block diagram of the MMC is shown in
+                <a href="#fig-9" style="color: #2563eb; text-decoration: underline;">Fig. 9</a>. It
+                reads these signals, provides the user interface, and sends control outputs such as de-gating and 
+                protection enable signals to the SMs.
+            </p>
+
+            <p>
+                Digital inputs are converted to actual values using lookup tables; for example, received frequencies 
+                are mapped to corresponding control values for automation.
+            </p>
+
+            <p>
+                The controller is based on this book shown below in references. It includes an output current controller
+                that manages the output active and reactive powers, a total
+                energy controller, and an imbalance controller that balances the energy storage within each SM and between the
+                upper and lower arms. A circulating current controller is employed to suppress the circulating current. 
+                The outputs of the circulating current controller and the outer current controller are combined to generate the insertion indices.
+                These indices produce the digital gating signals by applying various modulation strategies.
+            </p>            
+
+            <figure id="fig-8" style="text-align: center; margin: 30px auto; max-width: 700px;">
+                <img src="Pictures/Controller.svg" alt="Controller OPAL" 
+                    style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                <figcaption style="margin-top: 10px; font-size: 0.9rem; color: #6b7280; font-style: italic;">
+                    Fig. 8: Central controller of the MMC user-interfaced through the OPAL-RT.
+                </figcaption>
+            </figure>
+
+
+
+                <h2 id="results">Results</h2>
+
+                <p>
+                    As a demonstration, the prototype was tested and validated under the conditions 
+                    outlined in <a href="#tab-mn" style="color: #2563eb; text-decoration: underline;">Table 3</a>. 
+                    The prototype operates in inverter mode (DC to AC) and is connected to a resistive load, 
+                    as shown in <a href="#fig-2" style="color: #2563eb; text-decoration: underline;">Fig. 2</a>.
+                    The results are presented for the FB configuration, where two modulation strategies—Phase Shift Carrier (PSC) and Nearest Level Mode (NLM) — were tested.
+                    <a href="#fig-9" style="color:#2563eb; text-decoration: underline;">Fig. 9</a>   
+                    display the AC and DC side voltage and current waveforms for NLM and PSC modulation, respectively.
+                </p>
+
+            <figure id="fig-9" style="text-align: center; margin: 30px auto; max-width: 1000px;">
+                <div style="display: flex; gap: 20px; justify-content: center;">
+                    
+                    <img src="Pictures/DC_link_NLM.svg" alt="Controller diagram (a)"
+                        style="width: 50%; height: auto; border-radius: 8px; 
+                        box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+
+                    <img src="Pictures/DC_link_PSC.svg" alt="Controller implementation (b)"
+                        style="width: 50%; height: auto; border-radius: 8px; 
+                        box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+
+                </div>
+                <figcaption style="margin-top: 10px; font-size: 0.9rem; color: #6b7280; font-style: italic;">
+                    Fig. 9: DC side (DC-link current and voltage) and AC side (phase A current and voltage) waveforms of the MMC under (a) NLM (b) PSC modulation strategy.
+                </figcaption>
+
+            </figure>                
+            
+            <p>
+                Further experimental results are presented in 
+                <a href="#fig-10" style="color:#2563eb; text-decoration: underline;">Fig. 10</a>(a) and (b) 
+                for NLM and PSC, respectively. The arm currents for the upper and lower arm of phase A,
+                the currents (<em>i</em><sub>u,a</sub>, <em>i</em><sub>l,a</sub>), a single SM capacitor voltage 
+                (<em>V</em><sub>cap,u,1</sub>, <em>V</em><sub>cap,l,1</sub>), the summation of capacitor voltages 
+                (<em>V</em><sub>cap,u,a</sub><sup>∑</sup>, <em>V</em><sub>cap,l,a</sub><sup>∑</sup>) 
+                and the difference between them are presented. As can be observed, the NLM modulation 
+                strategy performs better in balancing the energy between all the SMs and between the 
+                upper and lower arms.
+            </p>
+
+
+            <figure id="fig-10" style="text-align: center; margin: 30px auto; max-width: 1000px;">
+                <div style="display: flex; gap: 20px; justify-content: center;">
+                    
+                    <img src="Pictures/MMC_NLM.svg" alt="Controller diagram (a)"
+                        style="width: 50%; height: auto; border-radius: 8px; 
+                        box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+
+                    <img src="Pictures/MMC_PSC.svg" alt="Controller implementation (b)"
+                        style="width: 50%; height: auto; border-radius: 8px; 
+                        box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+
+                </div>
+                <figcaption style="margin-top: 10px; font-size: 0.9rem; color: #6b7280; font-style: italic;">
+                    Fig. 10: The MMC’s waveform for the upper and lower arm of phase A for capacitor voltage, arm current, sum of each arm capacitors voltage, and the difference between
+                            lower and upper arm capacitors voltage under (a) NLM (b) PSC modulation strategy.
+                </figcaption>
+
+            <h2 id="references">References</h2>
+                    <p>
+                        <strong>Publication:</strong> 
+                        <a href="https://ieeexplore.ieee.org/abstract/document/11144660" target="_blank">
+                            Experimental Demonstrator of Full Bridge Modular Multilevel Converter for DC Grid Applications | IEEE Conference Publication | IEEE Xplore
+                        </a>
+                    </p>
+
+                    <p>
+                        <strong>Book:</strong> 
+                        <a href="https://link.springer.com/book/10.1007/978-3-319-32144-8" target="_blank">
+                            MMC HVDC Grids: For Offshore and Supergrid of the Future | SpringerLink
+                        </a>
+                    </p>
+
+    </main>
+</div>
 </body>
 </html>
