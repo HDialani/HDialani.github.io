@@ -31,35 +31,29 @@ a:hover {
 }
 
 /* =========================
-   Navigation Bar - Blue Boxes
+   Navigation Bar - Shared Class
    ========================= */
-#Home-box,
-#CV-box,
-#Projects-box {
+.nav-box {
     position: fixed;
     top: 0;
     background-color: #2563eb;
     padding: 10px 14px;
     z-index: 1000;
-    border-radius: 0 0 6px 6px; /* optional: rounded bottom corners */
+    border-radius: 0 0 6px 6px;
 }
 
-#Home-box { left: 0; }
-#CV-box { left: 0px; }
-#Projects-box { left: 185px; }
-
-#Home-box a,
-#CV-box a,
-#Projects-box a {                
-    color: #ffffff;
+/* This targets the links inside any .nav-box */
+.nav-box a, 
+.nav-box .dropdown-button {                
+    color: #ffffff !important;
     font-weight: 600;
     font-size: 16px;
+    text-decoration: none;
 }
 
-#Home-box a:hover,
-#CV-box a:hover,
-#Projects-box a:hover {
-    opacity: 0.85;
+/* Hover effect for all */
+.nav-box:hover {
+    opacity: 0.9;
 }
 
 /* =========================
@@ -263,3 +257,4 @@ header h1 {
 #Projects-box a.active {
     text-decoration: underline;
 }
+
