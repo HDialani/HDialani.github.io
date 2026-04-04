@@ -2,73 +2,78 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-	 <title>
-		Education · Hitesh  Dialani
-	</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles.css"> <!-- Link to your external CSS file -->
-    
-    <style>
-
-    </style>
+    <title>Education · Hitesh Dialani</title>
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-	
-	<section class="nav-box" style="left: 0px;">
-        <a href="../index.html">Home</a>
-    </section>
-	
-	<div class="dropdown" style="left: 90px;">
-		<span class="dropdown-button">CV ▾</span> 
-		<div class="dropdown-content">
-			<a href="Education.html">Education</a>
-			<a href="Experience.html">Experience</a>
-		</div>
-	</div>
-	
-	<section class="nav-box" style="left: 170px;">
-        <a href="../Projects/Projects.html">Projects</a>
-    </section>
-	
-	<div class="dropdown" style="left: 300px;">
-		<span class="dropdown-button">Work ▾</span> 
-		<div class="dropdown-content">
-			<a href="../Work/MMC/MMC.html">MMC</a>
-		</div>
-	</div>	
 
-	<section class="nav-box" style="left: 400px;"><a href="Courses/Courses.html">Courses</a></section>
-	
-    <header>
-        <h1 class="center">EDUCATION</h1>
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-link">Home</a>
+
+            <div class="dropdown">
+                <span class="nav-link dropdown-button">CV ▾</span>
+                <div class="dropdown-content">
+                    <a href="Education.html">Education</a>
+                    <a href="Experience.html">Experience</a>
+                </div>
+            </div>
+
+            <a href="../Projects/Projects.html" class="nav-link">Projects</a>
+
+            <div class="dropdown">
+                <span class="nav-link dropdown-button">Work ▾</span>
+                <div class="dropdown-content">
+                    <a href="../Work/MMC/MMC.html">MMC</a>
+                </div>
+            </div>
+
+            <a href="../Courses/Courses.html" class="nav-link">Courses</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-inner" style="justify-content: center;">
+            <h1>Education</h1>
+        </div>
     </header>
-	
-	<hr class="separator">
-	<div class="middle-block">
-		<h2>MSC IN ELECTRICAL ENGINEERING (2021-2023)</h2>
-		<p>DELFT UNIVERSITY OF TECHNOLOGY, THE NETHERLANDS</p>
-		<p><em>Thesis title:<a href= "http://resolver.tudelft.nl/uuid:4c4583b4-5322-49a9-9b03-ca1556348bdd" target="_blank"> "Highly Efficient Dual-Side Wireless Power Transfer: Implementation of Synchronization and Wireless Communication".</a></em></p>
-		<p>Electrical Power Engineering track, with a specialization in machines and drives, power electronics, and high voltage engineering.</p>
-	</div>
-	<hr class="center">
-	<div class="middle-block">
-		<h2>QUANTUM SCIENCE AND QUANTUM INFORMATION MINOR (2020)</h2>
-		<p>DELFT UNIVERSITY OF TECHNOLOGY, THE NETHERLANDS</p>
-		<p><em><a href= "https://www.quantuminspire.com/kbase/code-example-sat/" target="_blank">Code example: SAT</a></em></p>
-	</div>
-	<hr class="separator">
-	<div class="middle-block">
-		<h2>BSC IN ELECTRICAL ENGINEERING (2017-2020)</h2>
-		<p>DELFT UNIVERSITY OF TECHNOLOGY, THE NETHERLANDS</p>
-		<p><em>Thesis title:<a href= "http://resolver.tudelft.nl/uuid:62ee3722-881b-4868-b1a8-0a9fed452133" target="_blank"> "Amplifier design for an implementation of motional feedback in a bass loudspeaker"..</a></em></p>
-	</div>
-	<hr class="separator">
-	<div class="middle-block">
-		<h2>VOORBEREIDEND WETENSCHAPPELIJK ONDERWIJS (HIGH SCHOOL) (2011-2017)</h2>
-		<p>COLEGIO ARUBANO, ARUBA </p>
-		<p><em>Subjects: Natuurkunde,Biology,Scheikunde,Wiskunde B, Wiskunde D,Engels en Nederlands.</em></p>
-	</div>
 
+
+    <main class="main-container">
+
+        <hr class="separator">
+        <div class="middle-block">
+            <h2>MSc in Electrical Engineering (2021–2023)</h2>
+            <p>Delft University of Technology, The Netherlands</p>
+            <p><em>Thesis: <a href="http://resolver.tudelft.nl/uuid:4c4583b4-5322-49a9-9b03-ca1556348bdd" target="_blank">"Highly Efficient Dual-Side Wireless Power Transfer: Implementation of Synchronization and Wireless Communication"</a></em></p>
+            <p>Electrical Power Engineering track, with a specialization in machines and drives, power electronics, and high voltage engineering.</p>
+        </div>
+
+        <hr class="separator">
+        <div class="middle-block">
+            <h2>Quantum Science and Quantum Information Minor (2020)</h2>
+            <p>Delft University of Technology, The Netherlands</p>
+            <p><em><a href="https://www.quantuminspire.com/kbase/code-example-sat/" target="_blank">Code example: SAT</a></em></p>
+        </div>
+
+        <hr class="separator">
+        <div class="middle-block">
+            <h2>BSc in Electrical Engineering (2017–2020)</h2>
+            <p>Delft University of Technology, The Netherlands</p>
+            <p><em>Thesis: <a href="http://resolver.tudelft.nl/uuid:62ee3722-881b-4868-b1a8-0a9fed452133" target="_blank">"Amplifier design for an implementation of motional feedback in a bass loudspeaker"</a></em></p>
+        </div>
+
+        <hr class="separator">
+        <div class="middle-block">
+            <h2>Voorbereidend Wetenschappelijk Onderwijs / High School (2011–2017)</h2>
+            <p>Colegio Arubano, Aruba</p>
+            <p><em>Subjects: Natuurkunde, Biology, Scheikunde, Wiskunde B, Wiskunde D, Engels en Nederlands.</em></p>
+        </div>
+
+    </main>
+
+		<script src="../scripts.js"></script>
+		
 </body>
 </html>
-

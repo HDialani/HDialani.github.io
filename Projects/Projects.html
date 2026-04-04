@@ -4,42 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects · Hitesh Dialani</title>
-    <link rel="stylesheet" href="../styles.css"> 
-    <link rel="stylesheet" href="../blog.css">    
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../blog.css">
 </head>
 <body>
 
-    <section class="nav-box" style="left: 0px;">
-        <a href="../index.html">Home</a>
-    </section>
-    
-	
-	<div class="dropdown" style="left: 90px;">
-		<span class="dropdown-button">CV ▾</span> 
-		<div class="dropdown-content">
-			<a href="../CV/Education.html">Education</a>
-			<a href="../CV/Experience.html">Experience</a>
-		</div>
-	</div>
-    
-    <section class="nav-box" style="left: 170px;">
-        <a href="Projects.html">Projects</a>
-    </section>
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-link">Home</a>
 
-    <header>
-        <h1 class="center">PROJECTS</h1>
-    </header>
-    
-    <hr class="separator">
+            <div class="dropdown">
+                <span class="nav-link dropdown-button">CV ▾</span>
+                <div class="dropdown-content">
+                    <a href="../CV/Education.html">Education</a>
+                    <a href="../CV/Experience.html">Experience</a>
+                </div>
+            </div>
 
-    <div class="main-container">
-        <div class="middle-block">
-            <h2>Project Name</h2>
-            <p>Role / Context</p>
-            <p><em>Link: <a href="#" target="_blank">Project Link</a></em></p>
-            <p>Brief description of the project, technologies used, and your contribution.</p>
+            <a href="Projects.html" class="nav-link">Projects</a>
+
+            <div class="dropdown">
+                <span class="nav-link dropdown-button">Work ▾</span>
+                <div class="dropdown-content">
+                    <a href="../Work/MMC/MMC.html">MMC</a>
+                </div>
+            </div>
+
+            <a href="../Courses/Courses.html" class="nav-link">Courses</a>
         </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-inner" style="justify-content: center;">
+            <h1>Projects</h1>
+        </div>
+    </header>
+
+    <div class="project-container">
+
+        <aside class="project-sidebar">
+            <h2>Contents</h2>
+            <ul>
+                <li><a href="#overview">Project Overview</a></li>
+                <li><a href="#system">System</a></li>
+                <li><a href="#hardware">Hardware</a></li>
+                <li><a href="#controller">Controller</a></li>
+                <li><a href="#results">Results</a></li>
+                <li><a href="#references">References</a></li>
+            </ul>
+
+        </aside>
+
+        <main class="project-main">
+            <h1>Main topic</h1>
+
+            <h2 id="overview">Project Overview</h2>
+
+            <h2 id="system">System</h2>
+
+            <h2 id="hardware">Hardware</h2>
+
+                <h3 id="Section-1">Section 1</h3>
+
+                <h3 id="Section-2">Section 2</h3>
+
+            <h2 id="controller">Controller</h2>
+
+            <h2 id="results">Results</h2>
+
+            <h2 id="references">References</h2>
+
+        </main>
+
     </div>
+
+    <script src="../scripts.js"></script>
 
 </body>
 </html>
