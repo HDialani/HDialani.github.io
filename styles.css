@@ -339,3 +339,32 @@ footer {
         font-size: 1.5rem;
     }
 }
+
+/* =========================
+   Tables
+   ========================= */
+.project-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #ffffff;
+}
+
+.project-table th,
+.project-table td {
+    border: 1px solid #d1d5db;
+    padding: 10px 14px;
+    text-align: left;
+}
+
+.project-table th {
+    background-color: #f3f4f6;
+    font-weight: 600;
+}
+
+.project-table caption {
+    margin-bottom: 10px;
+    font-weight: 600;
+    text-align: left;
+    color: #374151;
+}

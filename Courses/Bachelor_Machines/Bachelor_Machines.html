@@ -34,7 +34,7 @@
             <ul>
                 <li><a href="#Intro">Introduction</a></li>
                 <li><a href="#Intro_setup">Introduction to the setup</a></li>
-                <li><a href="#Lab">Lab assignment</a></li>
+                <li><a href="#Lab">During the Lab Session</a></li>
                 <li><a href="#controller">Controller</a></li>                
                 <li><a href="#results">Results</a></li>
                 <li><a href="#references">References</a></li>
@@ -49,12 +49,12 @@
 
  <main class="project-main">
         <h1>EE1E1 course lab onsite version: electric drives</h1>
-  
 
             <h2 id="Intro">Introduction</h2>
             <p>
                 In this experiment you are going to experience the behaviour of real-life induction and DC machines and measure (a part of) the torque-speed characteristic of the induction machine.
-            </p>
+                We use the term induction machine in this manual. In the circuit diagrams, it may also be called an asynchronous machine. They are the same machine.
+            </p>            
             <p>
                 Before you are allowed to do the lab work, you have to study the experiment procedures and the theory behind the experiments. 
                 After doing the lab work, you have to analyze the measured results, calculate and plot the theoretical torque-speed characteristic of the induction machine, then compare the measured results with the theoretical results. 
@@ -117,12 +117,114 @@
             </tbody>
         </table>
 
-            <h2 id="Lab">Lab assignment</h2>
+            <h2 id="Lab">During the Lab Session</h2>
 
-                <p>You can follow the following guidelines to help you complete the measurements:</p>
-                <h3 id="Section-2">Section 2</h3>
+                <p>You can follow these guidelines to complete the measurements:</p>
+                        <ol>
+                              <h3 id="before-intro">Before the Introduction Explanation</h3>
+                            <li>
+                                Take a photo of the nameplate of the induction machine and write down the nameplate data of it (Brand, Type, Nominal stator phase voltage, etc.).
+                            </li>
 
+                            <li>
+                                We want to connect the induction machine to the grid.  Using the nameplate data, determine whether the induction machine should be connected in Y or Δ.
+                            </li>  
 
+                                <h3 id="Induction-only">Wiring and operation only the induction machine</h3>
+                            <li>
+                                Using either a Y or Δ configuration, draw and connect the asynchronous circuit with the required wiring.
+                            </li>  
+
+                            <li>
+                                Connect the induction machine to the grid using the DOL (direct-on-line) switch.
+                            </li>  
+
+                            <li>
+                                Connect the Chauvin Arnoux F607 power meter to measure voltage, current, and power. Refer to the laminated wiring diagram and pay attention to the current direction arrow.
+                            </li>
+
+                            <li>
+                                Have the wiring checked.
+                            </li>
+
+                            <li>
+                                Start the induction machine and record measurements using the power meter. What do you observe about real and reactive power?
+                            </li>
+                            <li>
+                                Turn off the induction machine and the power to the table.
+                            </li>                          
+                            <h3 id="DC-only">Wiring and operation of the DC machine</h3>                                                             
+                            <li>
+                                Connect the DC machine to the Siemens DC converter. Connect the rotor connections <em>A1</em> and <em>A2</em> and the field connections <em>E1</em> and <em>E2 </em>of the DC machine to the <em>A1</em> and <em>A2</em> and <em>E1</em> and <em>E2</em> connections of the drive. Connect the <em>T+</em> and <em>T−</em> connections of the tacho to the <em>T+</em> and <em>T−</em> connections of the Siemens DC converter.
+                            </li>         
+                            <li>
+                                Place a DC ammeter in <em>series</em> between the rotor armature and DC driver (<em>A1</em>) circuit <b>and</b> a DC voltmeter in <em>parallel</em> across the armature winding <em>A1</em> and <em>A2</em>.
+                            </li>  
+                            <li>
+                                Use the DC tachometer mounted on the shaft to measure the shaft speed. Connect a DC voltmeter in <em>parallel</em> to the tachometer output. The voltmeter reading tells you how fast the shaft is rotating, and the polarity of the voltage tells you the direction of rotation.
+                            </li>          
+                            <li>
+                                Draw the schematic of the setup with all the instruments and wires. Show your schematic and setup to the TA consultant before turning on the machines.
+                            </li>       
+                            <li>
+                                Start the DC machine and adjust it to reach 1500 rpm (use the tachometer ratio as a reference).
+                            </li>
+                            <li>
+                                Turn off the power to the setup.
+                            </li>
+                            <h3 id="DC_and_induction_combined_no_load">Spinning both machines at synchronous speed</h3>
+                            <li>
+                                Spin the DC machine and try to achieve 1500 rpm using the tacho, as a hint look at the tacho ration at your table.
+                            </li> 
+                            <li>
+                                Use the stroboscope to achieve 1500 rpm. Once you achieve this you can turn on the induction machine.
+                            </li>
+                            <h3 id="DC_and_induction_combined_load">Use the DC machine to drive the induction machine</h3>
+                            <li>                         
+                            <li>
+                                Fill in the values in <a href="#tab-2" style="color: #2563eb; text-decoration: underline;">Table 2</a>. The values of cos φ and torque T can be calculated at home.
+                            </li>
+                            
+                            <li>
+                                 With both machines running, vary I<sub>DC</sub> from −5 A to 5 A in steps of 1 A, and record all values in <a href="#tab-2" style="color: #2563eb; text-decoration: underline;">Table 2</a>.
+                            </li> 
+
+                            <li>
+                                After finishing, return the DC machine to the 1500 rpm setpoint. Turn off the induction machine first, then the DC machine, and finally switch off the power supply.
+                            </li>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+                        </ol>
+
+                            <table id="tab-2" class="project-table">
+            <caption>TABLE 2: Recorded the measured and calculated data points.</caption>
+            <thead>
+                <tr>
+                    <th>n (rpm)</th>
+                    <th>U tacho(V)</th>
+                    <th>I<sub>D</sub><sub>C</sub> Armature (A)</th>
+                    <th>U<sub>D</sub><sub>C</sub> Armature (V)</th>
+                    <th>U<sub>L</sub><sub>1</sub><sub>2</sub> (V) <em>Do this once</em></th>
+                    <th>P (W)</th>
+                    <th>Q (var)</th>
+                    <th>S (SA)</th>  
+                    <th>cos φ</th> 
+                    <th>T (Nm)</th>                                                                                                  
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>  </td>
+                    <td> </td>
+                    <td>  </td>
+                    <td> </td>
+                    <td>  </td>
+                    <td> </td>
+                     <td>  </td>
+                    <td> </td>
+                     <td>  </td>
+                    <td> </td>                                                                              
+                </tr>
+            </tbody>
+        </table>
             <h2 id="controller">Controller</h2>
 
 
