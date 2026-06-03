@@ -41,6 +41,11 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
   }
 
+  // ── Syntax highlighting ──
+  if (typeof hljs !== 'undefined') {
+    hljs.highlightAll();
+  }
+
   // ── Auto-number figure captions ──
   document.querySelectorAll('figcaption').forEach((caption, i) => {
     caption.innerHTML = caption.innerHTML.replace(/Figure\s*[X\d]+:/i, `Figure ${i + 1}:`);

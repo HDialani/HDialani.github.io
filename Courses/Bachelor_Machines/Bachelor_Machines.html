@@ -3,32 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Work · Hitesh Dialani</title>
-    <link rel="stylesheet" href="../../blog.css"> 
-    <link rel="stylesheet" href="../../styles.css">
-    <script src="../../scripts.js"></script>
+    <title>Bachelor Machines · Hitesh Dialani</title>
+    <link rel="stylesheet" href="/blog.css"> 
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+    <script src="/scripts.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 </head>
 <body>
 
-    <section class="nav-box" style="left: 0px;">
-        <a href="../index.html">Home</a>
-    </section>
-    
-	
-	<div class="dropdown" style="left: 90px;">
-		<span class="dropdown-button">CV ▾</span> 
-		<div class="dropdown-content">
-			<a href="../CV/Education.html">Education</a>
-			<a href="../CV/Experience.html">Experience</a>
-		</div>
-	</div>
-    
-	<section class="nav-box" style="left: 170px;">
-        <a href="../Projects/Projects.html">Projects</a>
-    </section>
+    <div id="navbar-placeholder"></div>
 
-        
     <div class="project-container">
         
         <aside class="project-sidebar">
@@ -37,8 +23,8 @@
                 <li><a href="#Intro">Introduction</a></li>
                 <li><a href="#Intro_setup">Introduction to the setup</a></li>
                 <li><a href="#Lab">During the Lab Session</a></li>
+                <li><a href="#Report">Report deliverables</a></li>                
                 <li><a href="#Background">Theoretical background: induction machine</a></li>                
-                <li><a href="#results">Results</a></li>
                 <li><a href="#Extra">Extra</a></li>
             </ul>
 
@@ -46,11 +32,11 @@
                 <div class="footer-left">Hitesh Dialani</div>
                 <div class="footer-right">© 2026 · Built with HTML, CSS & JavaScript</div>
             </footer>
-    </aside>
-    <hr class="separator">
+        </aside>
+        <hr class="separator">
 
- <main class="project-main">
-        <h1>EE1E1 course lab onsite version: electric drives</h1>
+        <main class="project-main">
+            <h1>EE1E1 course lab onsite version: electric drives</h1>
 
             <h2 id="Intro">Introduction</h2>
             <p>
@@ -78,7 +64,7 @@
             
             <p>
                 In this experiment, a DC machine is coupled to an induction machine and a synchronous machine on a common shaft. The synchronous machine is <b>not</b> used during this practical. It is included only in the master version of the course and is therefore not shown in the top-level image shown in
-    <a href="#top-level-machine" style="color: #2563eb; text-decoration: underline;"></a> The shaft speed is measured using a <a href="https://en.wikipedia.org/wiki/Tachometer" target="_blank">DC tachometer</a>. The DC machine is connected to the Siemens drive, which is supplied from the grid. The induction machine is connected directly to the grid using a Direct-On-Line (DOL) starter.
+                <a href="#top-level-machine" style="color: #2563eb; text-decoration: underline;"></a>. The shaft speed is measured using a <a href="https://en.wikipedia.org/wiki/Tachometer" target="_blank">DC tachometer</a>. The DC machine is connected to the Siemens drive, which is supplied from the grid. The induction machine is connected directly to the grid using a Direct-On-Line (DOL) starter.
             </p>
 
             <figure id="top-level-machine" style="text-align: center; margin: 30px auto; max-width: 700px;">
@@ -88,177 +74,198 @@
                     Top level view of the machine setup.
                 </figcaption>
             </figure>
+
             <p>
                 The per-phase equivalent circuit parameters of the induction machine is shown in
                 <a href="#tab-1" style="color: #2563eb; text-decoration: underline;">Table 1</a>.
             </p>
-    <table id="tab-1" class="project-table">
-        <caption>TABLE 1: Parameters of the induction machine to be measured.</caption>
-        <thead>
-            <tr>
-                <th>Parameters</th>
-                <th>Value</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Stator resistance (<em>r<sub>s</sub></em>) </td>
-                <td>9.020 Ω</td>
-            </tr>
-            <tr>
-                <td>Rotor resistance (<em>r<sub>r</sub></em>) </td>
-                <td>6.648 Ω</td>
-            </tr>                
-            <tr>
-                <td>Stator inductance (<em>L<sub>s</sub></em>)</td>
-                <td>54.749 mH</td>
-            </tr>
-            <tr>
-                <td>Rotor inductance (<em>L<sub>r</sub></em>)</td>
-                <td>2.083 mH</td>
-            </tr>                
-            <tr>
-                <td>Magnetization inductance (<em>L<sub>m</sub></em>)</td>
-                <td>1.043 H</td>
-            </tr>
-        </tbody>
-    </table>
+
+            <table id="tab-1" class="project-table">
+                <caption>TABLE 1: Parameters of the induction machine to be measured.</caption>
+                <thead>
+                    <tr>
+                        <th>Parameters</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Stator resistance (<em>r<sub>s</sub></em>) </td>
+                        <td>9.020 Ω</td>
+                    </tr>
+                    <tr>
+                        <td>Rotor resistance (<em>r<sub>r</sub></em>) </td>
+                        <td>6.648 Ω</td>
+                    </tr>                
+                    <tr>
+                        <td>Stator inductance (<em>L<sub>s</sub></em>)</td>
+                        <td>54.749 mH</td>
+                    </tr>
+                    <tr>
+                        <td>Rotor inductance (<em>L<sub>r</sub></em>)</td>
+                        <td>2.083 mH</td>
+                    </tr>                
+                    <tr>
+                        <td>Magnetization inductance (<em>L<sub>m</sub></em>)</td>
+                        <td>1.043 H</td>
+                    </tr>
+                </tbody>
+            </table>
 
             <h2 id="Lab">During the Lab Session</h2>
 
-                <p>You can follow these guidelines to complete the measurements:</p>
-                        <ol>
-                              <h3 id="before-intro">Before the Introduction Explanation</h3>
-                            <li>
-                                Take a photo of the nameplate of the induction machine and write down the nameplate data of it (Brand, Type, Nominal stator phase voltage, etc.).
-                            </li>
+            <p>You can follow these guidelines to complete the measurements:</p>
+            <ol>
+                <h3 id="before-intro">Before the Introduction Explanation</h3>
+                <li>
+                    Take a photo of the nameplate of the induction machine and write down the nameplate data of it (Brand, Type, Nominal stator phase voltage, etc.).
+                </li>
+                <li>
+                    We want to connect the induction machine to the grid. Using the nameplate data, determine whether the induction machine should be connected in Y or Δ. Hint: This is grid voltage and frequency dependent.
+                </li>  
 
-                            <li>
-                                We want to connect the induction machine to the grid. Using the nameplate data, determine whether the induction machine should be connected in Y or Δ. Hint: This is grid voltage and frequency dependent.
-                            </li>  
+                <h3 id="Induction-only">Wiring and operation only the induction machine</h3>
+                <li>
+                    Using either a Y or Δ configuration, draw and connect the asynchronous circuit with the required wiring.
+                </li>  
+                <li>
+                    Connect the induction machine to the grid using the DOL (direct-on-line) switch.
+                </li>  
+                <li>
+                    Connect the Chauvin Arnoux F607 power meter to measure voltage, current, and power. Refer to the laminated wiring diagram and pay attention to the current direction arrow. The manual can be found in 
+                    <a href="#power-clamp-manual" style="color: #2563eb; text-decoration: underline;"></a>.
+                </li>
+                <li>
+                    Have the wiring checked before continuing.
+                </li>
+                <li>
+                    Start the induction machine and record measurements using the power meter. What do you observe about real and reactive power?
+                </li>
+                <li>
+                    Note the sign convention of the tachometer output: a positive value indicates clockwise rotation, while a negative value indicates counterclockwise rotation.
+                </li>     
+                <li>
+                    Turn off the induction machine and the power to the table.
+                </li>                          
 
-                                <h3 id="Induction-only">Wiring and operation only the induction machine</h3>
-                            <li>
-                                Using either a Y or Δ configuration, draw and connect the asynchronous circuit with the required wiring.
-                            </li>  
+                <h3 id="DC-only">Wiring and operation of the DC machine</h3>                                                             
+                <li>
+                    Connect the DC machine to the Siemens DC converter. Connect the rotor connections <em>A1</em> and <em>A2</em> and the field connections <em>E1</em> and <em>E2</em> of the DC machine to the <em>A1</em> and <em>A2</em> and <em>E1</em> and <em>E2</em> connections of the drive. Connect the <em>T+</em> and <em>T−</em> connections of the tacho to the <em>T+</em> and <em>T−</em> connections of the Siemens DC converter.
+                </li>         
+                <li>
+                    Place a DC ammeter in <em>series</em> between the rotor armature and DC driver (<em>A1</em>) circuit <b>and</b> a DC voltmeter in <em>parallel</em> across the armature winding <em>A1</em> and <em>A2</em>.
+                </li>  
+                <li>
+                    Use the DC tachometer mounted on the shaft to measure the shaft speed. Connect a DC voltmeter in <em>parallel</em> to the tachometer output. The voltmeter reading tells you how fast the shaft is rotating, and the polarity of the voltage tells you the direction of rotation.
+                </li>     
+                <li>
+                    Draw the schematic of the setup with all the instruments and wires. Show your schematic and setup to the TA consultant before turning on the machines.
+                </li>       
+                <li>
+                    Start the DC machine and adjust it to reach 1500 rpm (use the tachometer ratio as a reference).
+                </li>
+                <li>
+                    Turn off the power to the setup.
+                </li>
+                <li>
+                    Find the instructor or TA to explain the next part.
+                </li>               
 
-                            <li>
-                                Connect the induction machine to the grid using the DOL (direct-on-line) switch.
-                            </li>  
+                <h3 id="DC_and_induction_combined_no_load">Spinning both machines at synchronous speed</h3>
+                <li>
+                    Spin the DC machine and try to achieve 1500 rpm using the tacho, as a hint look at the tacho ratio at your table.
+                </li> 
+                <li>
+                    Use the stroboscope to achieve 1500 rpm. Once you achieve this you can turn on the induction machine using the stroboscope.
+                </li>
+                <li>
+                    Fill in the values in <a href="#tab-2" style="color: #2563eb; text-decoration: underline;">Table 2</a>. 
+                    The values of cos&#x03C6; and torque <em>T</em> can be calculated at home. 
+                    The torque <em>T</em> can be calculated using \eqref{eq:T_mec}, assuming \( P_{el} = P_{mech} \).
+                </li> 
+                <li>
+                    Find the instructor or TA to explain the next part.
+                </li>                                
 
-                            <li>
-                                Connect the Chauvin Arnoux F607 power meter to measure voltage, current, and power. Refer to the laminated wiring diagram and pay attention to the current direction arrow. The manual can be found in 
-                                <a href="#power-clamp-manual" style="color: #2563eb; text-decoration: underline;"></a>.
-                            </li>
+                <h3 id="DC_and_induction_combined_load">Use the DC machine to drive the induction machine</h3>                     
+                <li>
+                    With both machines running, vary <em>I</em><sub>DC</sub> from −5 A to 5 A in steps of 1 A using the potentiometer. Record all values in
+                    <a href="#tab-2" style="color: #2563eb; text-decoration: underline;">Table 2</a>.
+                </li>
+                <li>
+                    Once all measurements have been recorded, return the DC machine to the 1500 rpm setpoint. Switch off the induction machine, then the DC machine, and finally the power to the table.
+                </li>
+                <li>
+                    Clean up the workstation and return all wiring and multimeters.
+                </li>
+                <li>
+                    End of experiment.
+                </li>
+            </ol>
 
-                            <li>
-                                Have the wiring checked before continuing.
-                            </li>
+            <table id="tab-2" class="project-table">
+                <caption>TABLE 2: Recorded the measured and calculated data points.</caption>
+                <thead>
+                    <tr>
+                        <th>n (rpm)</th>
+                        <th>U tacho(V)</th>
+                        <th>I<sub>DC</sub> Armature (A)</th>
+                        <th>U<sub>DC</sub> Armature (V)</th>
+                        <th>U<sub>L12</sub> (V) <em>Do this once</em></th>
+                        <th>P (W)</th>
+                        <th>Q (var)</th>
+                        <th>S (VA)</th>  
+                        <th>cos(φ)</th> 
+                        <th>T (Nm)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td><td></td><td></td><td></td><td></td>
+                        <td></td><td></td><td></td><td></td><td></td>
+                    </tr>
+                </tbody>
+            </table>
 
-                            <li>
-                                Start the induction machine and record measurements using the power meter. What do you observe about real and reactive power?
-                            </li>
-                            <li>
-                                Note the sign convention of the tachometer output: a positive value indicates clockwise rotation, while a negative value indicates counterclockwise rotation.
-                            </li>                            
-                            <li>
-                                Turn off the induction machine and the power to the table.
-                            </li>                          
-                            <h3 id="DC-only">Wiring and operation of the DC machine</h3>                                                             
-                            <li>
-                                Connect the DC machine to the Siemens DC converter. Connect the rotor connections <em>A1</em> and <em>A2</em> and the field connections <em>E1</em> and <em>E2 </em>of the DC machine to the <em>A1</em> and <em>A2</em> and <em>E1</em> and <em>E2</em> connections of the drive. Connect the <em>T+</em> and <em>T−</em> connections of the tacho to the <em>T+</em> and <em>T−</em> connections of the Siemens DC converter.
-                            </li>         
-                            <li>
-                                Place a DC ammeter in <em>series</em> between the rotor armature and DC driver (<em>A1</em>) circuit <b>and</b> a DC voltmeter in <em>parallel</em> across the armature winding <em>A1</em> and <em>A2</em>.
-                            </li>  
-                            <li>
-                                Use the DC tachometer mounted on the shaft to measure the shaft speed. Connect a DC voltmeter in <em>parallel</em> to the tachometer output. The voltmeter reading tells you how fast the shaft is rotating, and the polarity of the voltage tells you the direction of rotation.
-                            </li>          
-                            <li>
-                                Draw the schematic of the setup with all the instruments and wires. Show your schematic and setup to the TA consultant before turning on the machines.
-                            </li>       
-                            <li>
-                                Start the DC machine and adjust it to reach 1500 rpm (use the tachometer ratio as a reference).
-                            </li>
-                            <li>
-                                Turn off the power to the setup.
-                            </li>
-                            <h3 id="DC_and_induction_combined_no_load">Spinning both machines at synchronous speed</h3>
-                            <li>
-                                Spin the DC machine and try to achieve 1500 rpm using the tacho, as a hint look at the tacho ration at your table.
-                            </li> 
-                            <li>
-                                Use the stroboscope to achieve 1500 rpm. Once you achieve this you can turn on the induction machine.
-                            </li>
-                            <h3 id="DC_and_induction_combined_load">Use the DC machine to drive the induction machine</h3>                     
-                            <li>
-                                Fill in the values in <a href="#tab-2" style="color: #2563eb; text-decoration: underline;">Table 2</a>. 
-                                The values of cos&#x03C6; and torque <em>T</em> can be calculated at home. 
-                                The torque <em>T</em> can be calculated using \eqref{eq:T_mec}, assuming \( P_{el} = P_{mech} \).
-                            </li>
-                            
-                            <li>
-                                 With both machines running, vary <em>I</em><sub>DC</sub> from −5 A to 5 A in steps of 1 A by adjusting the potentiometer, and record all values in <a href="#tab-2" style="color: #2563eb; text-decoration: underline;">Table 2</a>.
-                            </li> 
+            <p>
+                In the table, <em>U</em><sub>tacho</sub> is the reading from the tacho, from which the rotational speed <em>n</em> can be identified using the ratio shown on your specific table. 
+                <em>I</em><sub>DC</sub> is the measured DC armature current, <em>U</em><sub>L12</sub> is the measured line-line voltage between phase 1 and 2, 
+                <em>I</em><sub>L3</sub> is the measured line current of phase 3. 
+                <em>P</em>, <em>Q</em> and <em>S</em> are the readings of the real power, reactive power and apparent power from the power meter, 
+                from which the power factor cos (<em>φ</em>) can be calculated. 
+                The torque of the induction machine <em>T</em> can be obtained from the measured input power <em>P</em>, 
+                the line current <em>I</em><sub>L3</sub>, phase resistance <em>r</em><sub>s</sub> and the synchronous speed <em>n</em><sub>s</sub> 
+                using the method shown in the theoretical background section of the manual.
+            </p>
 
-                            <li>
-                                After finishing, return the DC machine to the 1500 rpm setpoint. Turn off the induction machine first, then the DC machine, and finally switch off the power supply.
-                            </li>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
-                        </ol>
+            <h2 id="Report">Report deliverables</h2>
 
-                            <table id="tab-2" class="project-table">
-            <caption>TABLE 2: Recorded the measured and calculated data points.</caption>
-            <thead>
-                <tr>
-                    <th>n (rpm)</th>
-                    <th>U tacho(V)</th>
-                    <th>I<sub>D</sub><sub>C</sub> Armature (A)</th>
-                    <th>U<sub>D</sub><sub>C</sub> Armature (V)</th>
-                    <th>U<sub>L</sub><sub>1</sub><sub>2</sub> (V) <em>Do this once</em></th>
-                    <th>P (W)</th>
-                    <th>Q (var)</th>
-                    <th>S (SA)</th>  
-                    <th>cos(φ) </th> 
-                    <th>T (Nm)</th>                                                                                                  
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>  </td>
-                    <td> </td>
-                    <td>  </td>
-                    <td> </td>
-                    <td>  </td>
-                    <td> </td>
-                     <td>  </td>
-                    <td> </td>
-                     <td>  </td>
-                    <td> </td>                                                                              
-                </tr>
-            </tbody>
-        </table>
+            <p>After the measurements are completed, please write a report including the following content:</p>
 
-        <p>
-            In the table, <em>U</em><sub>tacho</sub> is the reading from the tacho, from which the rotational speed <em>n</em> can be identified using the ratio shown on your specific table. 
-            <em>I</em><sub>DC</sub> is the measured DC armature current, <em>U</em><sub>L12</sub> is the measured line-line voltage between phase 1 and 2, 
-            <em>I</em><sub>L3</sub> is the measured line current of phase 3. 
-            <em>P</em>, <em>Q</em> and <em>S</em> are the readings of the real power, reactive power and apparent power from the power meter, 
-            from which the power factor cos (<em>φ</em>) can be calculated. 
-            The torque of the induction machine <em>T</em> can be obtained from the measured input power <em>P</em>, 
-            the line current <em>I</em><sub>L3</sub>, phase resistance <em>r</em><sub>s</sub> and the synchronous speed <em>n</em><sub>s</sub> 
-            using the method shown in the theoretical background section of the manual.
-        </p>
+            <ol>
+                <li>A schematic showing the measurement setup, with multimeters and wiring.</li>
+                <li>Choice of the induction machine wiring configuration (Δ or Y), and give the motivation.</li>
+                <li>
+                    A theoretical torque-speed curve of an induction machine calculated based on the equivalent 
+                    circuit parameters shown in 
+                    <a href="#tab-1" style="color: #2563eb; text-decoration: underline;">Table 1</a>.
+                </li>
+                <li>
+                    A table summarising all the measured and calculated data points (an example shown in 
+                    <a href="#tab-2" style="color: #2563eb; text-decoration: underline;">Table 2</a>).
+                </li>
+                <li>Measured torque-speed points derived from the measurements.</li>
+                <li>Comparison between the theoretical torque-speed curve and the measured points (plot both in one graph).</li>
+                <li>Causes of mismatch between the theoretical curve and measured points, if there are any.</li>
+            </ol>
+
             <h2 id="Background">Theoretical background: induction machine</h2>
-
-            <h3>Winding connection induction machine</h3>
-
 
             <h3>Grid connection</h3>
             <p>
                 By neglecting the core loss, the equivalent circuit of the induction machine is shown in <a href="#equivalent" style="color: #2563eb; text-decoration: underline;"></a>.
-                There are 5 elements in the circuit: the stator resistance <em>r<sub>s</sub></em>, the stator leakage reactance <em>X<sub>s</sub></em>,​the magnetizing reactance <em>X<sub>m</sub></em>,
-                the rotor leakage reactance <em>X<sub>r</sub></em>, and the rotor resistance <em>r<sub>r</sub></em>, the slip <em>s</em> is calculated from the synchronous speed <em>n<sub>s</sub></em> and the mechanical speed <em>n</em>:
-
+                There are 5 elements in the circuit: the stator resistance <em>r<sub>s</sub></em>, the stator leakage reactance <em>X<sub>s</sub></em>, the magnetizing reactance <em>X<sub>m</sub></em>,
+                the rotor leakage reactance <em>X<sub>r</sub></em>, and the rotor resistance <em>r<sub>r</sub></em>. The slip <em>s</em> is calculated from the synchronous speed <em>n<sub>s</sub></em> and the mechanical speed <em>n</em>:
             </p>
 
             <div>
@@ -270,100 +277,147 @@
             $$
             </div>
 
-        <figure id="equivalent" style="text-align: center; margin: 30px auto; max-width: 700px;">
-            <img src="Pictures/Equivalent_circuit_of_the_induction_machine.svg" alt="Controller OPAL" 
-                style="width: 100%; height: auto;">
-            <figcaption style="margin-top: 10px; font-size: 0.9rem; color: #6b7280; font-style: italic;">
-                Equivalent circuit of the induction machine.
-            </figcaption>
-        </figure>
-    <p>
-    
-    <p>
-    Connecting an induction machine is more complicated than plugging the electrical cord. 
-    As can be seen from <a href="#equivalent" style="color: #2563eb; text-decoration: underline;"></a>, 
-    when the induction machine starts, the slip \( s = 1 \). Therefore, the rotor impedance is very low, 
-    which results in a high starting current even if there is no load. To protect the machine and the grid 
-    from overload or overcurrent, a direct-on-line (DOL) starter is often used. It connects the induction 
-    machine directly to the power grid via a three-phase contactor. Inside the starter, there are also 
-    overcurrent and overload protections connected in series with the contactor, as shown in 
-    <a href="#dol" style="color: #2563eb; text-decoration: underline;"></a>.
-    </p>
+            <figure id="equivalent" style="text-align: center; margin: 30px auto; max-width: 700px;">
+                <img src="Pictures/Equivalent_circuit_of_the_induction_machine.svg" alt="Equivalent circuit of the induction machine" 
+                    style="width: 100%; height: auto; border: none; box-shadow: none;">
+                <figcaption style="margin-top: 10px; font-size: 0.9rem; color: #6b7280; font-style: italic;">
+                    Equivalent circuit of the induction machine.
+                </figcaption>
+            </figure>
 
-    </p>
+            <p>
+                Connecting an induction machine is more complicated than plugging the electrical cord. 
+                As can be seen from <a href="#equivalent" style="color: #2563eb; text-decoration: underline;"></a>, 
+                when the induction machine starts, the slip \( s = 1 \). Therefore, the rotor impedance is very low, 
+                which results in a high starting current even if there is no load. To protect the machine and the grid 
+                from overload or overcurrent, a direct-on-line (DOL) starter is often used. It connects the induction 
+                machine directly to the power grid via a three-phase contactor. Inside the starter, there are also 
+                overcurrent and overload protections connected in series with the contactor, as shown in 
+                <a href="#dol" style="color: #2563eb; text-decoration: underline;"></a>.
+            </p>
 
-        <h3>Torque-speed characteristic</h3>
-    <p>
-        The performance of the induction machine can be calculated from its equivalent circuit in 
-        <a href="#equivalent" style="color: #2563eb; text-decoration: underline;"></a>. 
-        Once the frequency, phase voltage, and the resistances/inductances are known, the stator and rotor 
-        impedances and currents can be calculated at each slip. The air-gap power <em>P<sub>ag</sub></em> 
-        and the mechanical power <em>P<sub>mec</sub></em> are calculated as:
-    </p>
+            <h3>Torque-speed characteristic</h3>
+            <p>
+                The performance of the induction machine can be calculated from its equivalent circuit in 
+                <a href="#equivalent" style="color: #2563eb; text-decoration: underline;"></a>. 
+                Once the frequency, phase voltage, and the resistances/inductances are known, the stator and rotor 
+                impedances and currents can be calculated at each slip. The air-gap power <em>P<sub>ag</sub></em> 
+                and the mechanical power <em>P<sub>mec</sub></em> are calculated as:
+            </p>
 
-    <div>
-    $$
-    \begin{equation}
-        P_{ag} = 3|\mathbf{I}_r|^2 \frac{r_r}{s} = P_{in} - 3|\mathbf{I}_s|^2 r_s,
-    \label{eq:Pag}
-    \end{equation}
-    $$
-    </div>
+            <div>
+            $$
+            \begin{equation}
+                P_{ag} = 3|\mathbf{I}_r|^2 \frac{r_r}{s} = P_{in} - 3|\mathbf{I}_s|^2 r_s,
+            \label{eq:Pag}
+            \end{equation}
+            $$
+            </div>
 
-    <div>
-    $$
-    \begin{equation}
-        P_{mec} = 3|\mathbf{I}_r|^2 \frac{r_r}{s} - 3|\mathbf{I}_r|^2 r_r, \quad s \neq 0,
-    \label{eq:Pmec}
-    \end{equation}
-    $$
-    </div>
+            <div>
+            $$
+            \begin{equation}
+                P_{mec} = 3|\mathbf{I}_r|^2 \frac{r_r}{s} - 3|\mathbf{I}_r|^2 r_r, \quad s \neq 0,
+            \label{eq:Pmec}
+            \end{equation}
+            $$
+            </div>
 
-    <p>
-        where \( P_{in} = 3\Re(\mathbf{V}_s \mathbf{I}_s^*) \) is the input power, \( \mathbf{V}_s \) is the 
-        stator phase voltage phasor, \( \mathbf{I}_s \) and \( \mathbf{I}_r \) are the phase stator current 
-        and rotor current phasors respectively.
-    </p>
+            <p>
+                where \( P_{in} = 3\Re(\mathbf{V}_s \mathbf{I}_s^*) \) is the input power, \( \mathbf{V}_s \) is the 
+                stator phase voltage phasor, \( \mathbf{I}_s \) and \( \mathbf{I}_r \) are the phase stator current 
+                and rotor current phasors respectively.
+            </p>
 
-    <p>
-        When \( s = 0 \), the electromagnetic torque becomes 0 since it is corresponding to the no-load condition.
-    </p>
+            <p>
+                When \( s = 0 \), the electromagnetic torque becomes 0 since it is corresponding to the no-load condition.
+            </p>
 
-    <p>
-        The electromagnetic torque <em>T</em> can be calculated from either the air-gap power or the mechanical power by
-    </p>
+            <p>
+                The electromagnetic torque <em>T</em> can be calculated from either the air-gap power or the mechanical power by
+            </p>
 
-    <div>
-    $$
-    \begin{equation}
-        T = \frac{P_{ag}}{2\pi \times n_s/60}, \quad \text{or}
-    \label{eq:T_ag}
-    \end{equation}
-    $$
-    </div>
+            <div>
+            $$
+            \begin{equation}
+                T = \frac{P_{ag}}{2\pi \times n_s/60}, \quad \text{or}
+            \label{eq:T_ag}
+            \end{equation}
+            $$
+            </div>
 
-    <div>
-    $$
-    \begin{equation}
-        T = \frac{P_{mec}}{2\pi \times n/60}.
-    \label{eq:T_mec}
-    \end{equation}
-    $$
-    </div>
+            <div>
+            $$
+            \begin{equation}
+                T = \frac{P_{mec}}{2\pi \times n/60}.
+            \label{eq:T_mec}
+            \end{equation}
+            $$
+            </div>
 
-    <p>
-        By substituting <em>s</em>, <em>n<sub>s</sub></em> and <em>n</em> into the equations above, the torque 
-        at different mechanical speed can be calculated. Therefore, a torque-speed characteristics curve can be 
-        plotted. The code below shows the torque-speed curve of a typical 4-pole induction machine. As we can see, 
-        the torque changes from positive to negative at the synchronous speed 1500 r/min. Similarly, the torque 
-        at specific test speed can be obtained from the measured input power to the machine, measured phase current 
-        and synchronous speed from \eqref{eq:Pag} and \eqref{eq:T_ag}.
-    </p>
+            <p>
+                By substituting <em>s</em>, <em>n<sub>s</sub></em> and <em>n</em> into the equations above, the torque 
+                at different mechanical speed can be calculated. Therefore, a torque-speed characteristics curve can be 
+                plotted. The code below shows the torque-speed curve of a typical 4-pole induction machine. As we can see, 
+                the torque changes from positive to negative at the synchronous speed 1500 r/min. Similarly, the torque 
+                at specific test speed can be obtained from the measured input power to the machine, measured phase current 
+                and synchronous speed from \eqref{eq:Pag} and \eqref{eq:T_ag}.
+            </p>            
 
-            <h2 id="results">Results</h2>
+            <p>The following Python code calculates and plots the torque-speed characteristic:</p>
 
+<pre style="border-radius: 8px; overflow-x: auto; font-size: 0.85rem; line-height: 1.6; box-shadow: 0 4px 10px rgba(0,0,0,0.08);"><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+plt.rcParams['figure.figsize'] = [6, 4]
+plt.rcParams['figure.dpi'] = 200
+
+# IM: 400 V, 4-pole, 50 Hz, Y connected
+Ls = 4.138e-3
+rs = 0.5
+rr = 0.35
+Lr = 3.183e-3
+Lm = 1.114
+f  = 50
+Vll= 400.0
+p  = 2  # 4-pole
+
+Xs = 2*np.pi*f*Ls
+Xr = 2*np.pi*f*Lr
+Xm = 2*np.pi*f*Lm
+
+Vph = Vll/np.sqrt(3)  # Y connected
+ns  = 60*f/p          # synchronous speed (rpm)
+
+n = np.linspace(0, 3000, 100)
+s = (ns-n)/ns
+
+Zr   = np.divide(rr,s) + 1j*Xr
+Zm   = 1/(1/(1j*Xm)+1/Zr)
+Ztot = Zm + rs + 1j*Xs
+
+Is  = Vph/Ztot
+Pin = 3*np.real(Vph*np.conj(Is))
+Pag = Pin - 3*np.absolute(Is)**2*rs
+T   = Pag/(ns/60*2*np.pi)
+
+plt.plot(n, T)
+plt.xlabel('n (r/min)')
+plt.ylabel('Torque (Nm)')
+plt.xlim([0, 3000])
+plt.savefig('../Pictures/torque_speed.png', dpi=200, bbox_inches='tight')
+plt.show()</code></pre>
+
+            <figure id="torque-speed" style="text-align: center; margin: 30px auto; max-width: 700px;">
+                <img src="Pictures/torque_speed.png" alt="Torque-speed characteristic"
+                    style="width: 100%; height: auto; border: none; box-shadow: none;">
+                <figcaption style="margin-top: 10px; font-size: 0.9rem; color: #6b7280; font-style: italic;">
+                    Torque-speed characteristic of the induction machine.
+                </figcaption>
+            </figure>
 
             <h2 id="Extra">Extra</h2>
+
+            <h3>Winding connection induction machine</h3>
 
             <h3>Power Clamp Manual</h3>
             <p>The power clamp manual is shown below:</p>
@@ -381,8 +435,8 @@
                 </figcaption>
             </figure>
 
-            </main>
-        </div>
+        </main>
+    </div>
 
 </body>
 </html>
