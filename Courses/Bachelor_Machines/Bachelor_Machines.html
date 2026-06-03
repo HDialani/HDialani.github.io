@@ -6,6 +6,8 @@
     <title>Work · Hitesh Dialani</title>
     <link rel="stylesheet" href="../../blog.css"> 
     <link rel="stylesheet" href="../../styles.css">
+    <script src="../../scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
 
@@ -35,7 +37,7 @@
                 <li><a href="#Intro">Introduction</a></li>
                 <li><a href="#Intro_setup">Introduction to the setup</a></li>
                 <li><a href="#Lab">During the Lab Session</a></li>
-                <li><a href="#controller">Controller</a></li>                
+                <li><a href="#Background">Theoretical background: induction machine</a></li>                
                 <li><a href="#results">Results</a></li>
                 <li><a href="#references">References</a></li>
             </ul>
@@ -84,38 +86,37 @@
                 The per-phase equivalent circuit parameters of the induction machine is shown in
                 <a href="#tab-1" style="color: #2563eb; text-decoration: underline;">Table 1</a>.
             </p>
-
-        <table id="tab-1" class="project-table">
-            <caption>TABLE 1: Parameters of the induction machine to be measured.</caption>
-            <thead>
-                <tr>
-                    <th>Parameters</th>
-                    <th>Value</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Stator resistance (r<sub>s</sub>) </td>
-                    <td>9.020 Ω</td>
-                </tr>
-                <tr>
-                    <td>Rotor resistance (r<sub>r</sub>) </td>
-                    <td>6.648 Ω</td>
-                </tr>                
-                <tr>
-                    <td>Stator inductance (L<sub>s</sub>)</td>
-                    <td>54.749 mH</td>
-                </tr>
-                <tr>
-                    <td>Rotor inductance (L<sub>r</sub>)</td>
-                    <td>2.083 mH</td>
-                </tr>                
-                <tr>
-                    <td>Magnetization inductance (L<sub>m</sub>)</td>
-                    <td>1.043 H</td>
-                </tr>
-            </tbody>
-        </table>
+    <table id="tab-1" class="project-table">
+        <caption>TABLE 1: Parameters of the induction machine to be measured.</caption>
+        <thead>
+            <tr>
+                <th>Parameters</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Stator resistance (<em>r<sub>s</sub></em>) </td>
+                <td>9.020 Ω</td>
+            </tr>
+            <tr>
+                <td>Rotor resistance (<em>r<sub>r</sub></em>) </td>
+                <td>6.648 Ω</td>
+            </tr>                
+            <tr>
+                <td>Stator inductance (<em>L<sub>s</sub></em>)</td>
+                <td>54.749 mH</td>
+            </tr>
+            <tr>
+                <td>Rotor inductance (<em>L<sub>r</sub></em>)</td>
+                <td>2.083 mH</td>
+            </tr>                
+            <tr>
+                <td>Magnetization inductance (<em>L<sub>m</sub></em>)</td>
+                <td>1.043 H</td>
+            </tr>
+        </tbody>
+    </table>
 
             <h2 id="Lab">During the Lab Session</h2>
 
@@ -127,7 +128,7 @@
                             </li>
 
                             <li>
-                                We want to connect the induction machine to the grid.  Using the nameplate data, determine whether the induction machine should be connected in Y or Δ.
+                                We want to connect the induction machine to the grid.  Using the nameplate data, determine whether the induction machine should be connected in Y or Δ. Hint: This is grid dependent.
                             </li>  
 
                                 <h3 id="Induction-only">Wiring and operation only the induction machine</h3>
@@ -144,7 +145,7 @@
                             </li>
 
                             <li>
-                                Have the wiring checked.
+                                Have the wiring checked before continuing.
                             </li>
 
                             <li>
@@ -179,14 +180,15 @@
                             <li>
                                 Use the stroboscope to achieve 1500 rpm. Once you achieve this you can turn on the induction machine.
                             </li>
-                            <h3 id="DC_and_induction_combined_load">Use the DC machine to drive the induction machine</h3>
-                            <li>                         
+                            <h3 id="DC_and_induction_combined_load">Use the DC machine to drive the induction machine</h3>                     
                             <li>
-                                Fill in the values in <a href="#tab-2" style="color: #2563eb; text-decoration: underline;">Table 2</a>. The values of cos φ and torque T can be calculated at home.
+                                Fill in the values in <a href="#tab-2" style="color: #2563eb; text-decoration: underline;">Table 2</a>. 
+                                The values of cos&#x03C6; and torque <em>T</em> can be calculated at home. 
+                                The torque <em>T</em> can be calculated using \eqref{eq:T_mec}, assuming \( P_{el} = P_{mech} \).
                             </li>
                             
                             <li>
-                                 With both machines running, vary I<sub>DC</sub> from −5 A to 5 A in steps of 1 A, and record all values in <a href="#tab-2" style="color: #2563eb; text-decoration: underline;">Table 2</a>.
+                                 With both machines running, vary <em>I</em><sub>DC</sub> from −5 A to 5 A in steps of 1 A by adjusting the potentiometer, and record all values in <a href="#tab-2" style="color: #2563eb; text-decoration: underline;">Table 2</a>.
                             </li> 
 
                             <li>
@@ -206,7 +208,7 @@
                     <th>P (W)</th>
                     <th>Q (var)</th>
                     <th>S (SA)</th>  
-                    <th>cos φ</th> 
+                    <th>cos(φ) </th> 
                     <th>T (Nm)</th>                                                                                                  
                 </tr>
             </thead>
@@ -225,8 +227,128 @@
                 </tr>
             </tbody>
         </table>
-            <h2 id="controller">Controller</h2>
 
+        <p>
+            In the table, <em>U</em><sub>tacho</sub> is the reading from the tacho, from which the rotational speed <em>n</em> can be identified using the ratio shown on your specific table. 
+            <em>I</em><sub>DC</sub> is the measured DC armature current, <em>U</em><sub>L12</sub> is the measured line-line voltage between phase 1 and 2, 
+            <em>I</em><sub>L3</sub> is the measured line current of phase 3. 
+            <em>P</em>, <em>Q</em> and <em>S</em> are the readings of the real power, reactive power and apparent power from the power meter, 
+            from which the power factor cos (<em>φ</em>) can be calculated. 
+            The torque of the induction machine <em>T</em> can be obtained from the measured input power <em>P</em>, 
+            the line current <em>I</em><sub>L3</sub>, phase resistance <em>r</em><sub>s</sub> and the synchronous speed <em>n</em><sub>s</sub> 
+            using the method shown in the theoretical background section of the manual.
+        </p>
+            <h2 id="Background">Theoretical background: induction machine</h2>
+
+            <h3>Winding connection induction machine</h3>
+
+
+            <h3>Grid connection</h3>
+            <p>
+                By neglecting the core loss, the equivalent circuit of the induction machine is shown in <a href="#equivalent" style="color: #2563eb; text-decoration: underline;"></a>.
+                There are 5 elements in the circuit: the stator resistance <em>r<sub>s</sub></em>, the stator leakage reactance <em>X<sub>s</sub></em>,​the magnetizing reactance <em>X<sub>m</sub></em>,
+                the rotor leakage reactance <em>X<sub>r</sub></em>, and the rotor resistance <em>r<sub>r</sub></em>, the slip <em>s</em> is calculated from the synchronous speed <em>n<sub>s</sub></em> and the mechanical speed <em>n</em>:
+
+            </p>
+
+            <div>
+            $$
+            \begin{equation}
+                s = \frac{n_s - n}{n_s}
+            \label{eq:slip}
+            \end{equation}
+            $$
+            </div>
+
+        <figure id="equivalent" style="text-align: center; margin: 30px auto; max-width: 700px;">
+            <img src="Pictures/Equivalent_circuit_of_the_induction_machine.svg" alt="Controller OPAL" 
+                style="width: 100%; height: auto;">
+            <figcaption style="margin-top: 10px; font-size: 0.9rem; color: #6b7280; font-style: italic;">
+                Equivalent circuit of the induction machine.
+            </figcaption>
+        </figure>
+    <p>
+    
+    <p>
+    Connecting an induction machine is more complicated than plugging the electrical cord. 
+    As can be seen from <a href="#equivalent" style="color: #2563eb; text-decoration: underline;"></a>, 
+    when the induction machine starts, the slip \( s = 1 \). Therefore, the rotor impedance is very low, 
+    which results in a high starting current even if there is no load. To protect the machine and the grid 
+    from overload or overcurrent, a direct-on-line (DOL) starter is often used. It connects the induction 
+    machine directly to the power grid via a three-phase contactor. Inside the starter, there are also 
+    overcurrent and overload protections connected in series with the contactor, as shown in 
+    <a href="#dol" style="color: #2563eb; text-decoration: underline;"></a>.
+    </p>
+
+    </p>
+
+        <h3>Torque-speed characteristic</h3>
+    <p>
+        The performance of the induction machine can be calculated from its equivalent circuit in 
+        <a href="#equivalent" style="color: #2563eb; text-decoration: underline;"></a>. 
+        Once the frequency, phase voltage, and the resistances/inductances are known, the stator and rotor 
+        impedances and currents can be calculated at each slip. The air-gap power <em>P<sub>ag</sub></em> 
+        and the mechanical power <em>P<sub>mec</sub></em> are calculated as:
+    </p>
+
+    <div>
+    $$
+    \begin{equation}
+        P_{ag} = 3|\mathbf{I}_r|^2 \frac{r_r}{s} = P_{in} - 3|\mathbf{I}_s|^2 r_s,
+    \label{eq:Pag}
+    \end{equation}
+    $$
+    </div>
+
+    <div>
+    $$
+    \begin{equation}
+        P_{mec} = 3|\mathbf{I}_r|^2 \frac{r_r}{s} - 3|\mathbf{I}_r|^2 r_r, \quad s \neq 0,
+    \label{eq:Pmec}
+    \end{equation}
+    $$
+    </div>
+
+    <p>
+        where \( P_{in} = 3\Re(\mathbf{V}_s \mathbf{I}_s^*) \) is the input power, \( \mathbf{V}_s \) is the 
+        stator phase voltage phasor, \( \mathbf{I}_s \) and \( \mathbf{I}_r \) are the phase stator current 
+        and rotor current phasors respectively.
+    </p>
+
+    <p>
+        When \( s = 0 \), the electromagnetic torque becomes 0 since it is corresponding to the no-load condition.
+    </p>
+
+    <p>
+        The electromagnetic torque <em>T</em> can be calculated from either the air-gap power or the mechanical power by
+    </p>
+
+    <div>
+    $$
+    \begin{equation}
+        T = \frac{P_{ag}}{2\pi \times n_s/60}, \quad \text{or}
+    \label{eq:T_ag}
+    \end{equation}
+    $$
+    </div>
+
+    <div>
+    $$
+    \begin{equation}
+        T = \frac{P_{mec}}{2\pi \times n/60}.
+    \label{eq:T_mec}
+    \end{equation}
+    $$
+    </div>
+
+    <p>
+        By substituting <em>s</em>, <em>n<sub>s</sub></em> and <em>n</em> into the equations above, the torque 
+        at different mechanical speed can be calculated. Therefore, a torque-speed characteristics curve can be 
+        plotted. The code below shows the torque-speed curve of a typical 4-pole induction machine. As we can see, 
+        the torque changes from positive to negative at the synchronous speed 1500 r/min. Similarly, the torque 
+        at specific test speed can be obtained from the measured input power to the machine, measured phase current 
+        and synchronous speed from \eqref{eq:Pag} and \eqref{eq:T_ag}.
+    </p>
 
             <h2 id="results">Results</h2>
 
