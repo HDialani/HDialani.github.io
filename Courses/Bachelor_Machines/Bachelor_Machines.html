@@ -140,10 +140,7 @@
                 </li>
                 <li>
                     Start the induction machine and record measurements using the power meter. What do you observe about real and reactive power?
-                </li>
-                <li>
-                    Note the sign convention of the tachometer output: a positive value indicates clockwise rotation, while a negative value indicates counterclockwise rotation.
-                </li>     
+                </li>   
                 <li>
                     Turn off the induction machine and the power to the table.
                 </li>                          
@@ -153,7 +150,7 @@
                     Connect the DC machine to the Siemens DC converter. Connect the rotor connections <em>A1</em> and <em>A2</em> and the field connections <em>E1</em> and <em>E2</em> of the DC machine to the <em>A1</em> and <em>A2</em> and <em>E1</em> and <em>E2</em> connections of the drive. Connect the <em>T+</em> and <em>T−</em> connections of the tacho to the <em>T+</em> and <em>T−</em> connections of the Siemens DC converter.
                 </li>         
                 <li>
-                    Place a DC ammeter in <em>series</em> between the rotor armature and DC driver (<em>A1</em>) circuit <b>and</b> a DC voltmeter in <em>parallel</em> across the armature winding <em>A1</em> and <em>A2</em>.
+                    Using 2 multimeters, place a DC ammeter in <em>series</em> between the rotor armature and the DC drive circuit, <b>and</b> a DC voltmeter in <em>parallel</em> across the armature winding.
                 </li>  
                 <li>
                     Use the DC tachometer mounted on the shaft to measure the shaft speed. Connect a DC voltmeter in <em>parallel</em> to the tachometer output. The voltmeter reading tells you how fast the shaft is rotating, and the polarity of the voltage tells you the direction of rotation.
@@ -162,7 +159,7 @@
                     Draw the schematic of the setup with all the instruments and wires. Show your schematic and setup to the TA consultant before turning on the machines.
                 </li>       
                 <li>
-                    Start the DC machine and adjust it to reach 1500 rpm (use the tachometer ratio as a reference).
+                    Start the DC machine and adjust it to reach 1500 RPM (use the tachometer ratio from your table to find the correct corresponding voltage).
                 </li>
                 <li>
                     Turn off the power to the setup.
@@ -173,10 +170,10 @@
 
                 <h3 id="DC_and_induction_combined_no_load">Spinning both machines at synchronous speed</h3>
                 <li>
-                    Spin the DC machine and try to achieve 1500 rpm using the tacho, as a hint look at the tacho ratio at your table.
-                </li> 
+                    Spin the induction machine and note the direction of rotation using the tachometer voltage.
+                </li>
                 <li>
-                    Use the stroboscope to achieve 1500 rpm. Once you achieve this you can turn on the induction machine using the stroboscope.
+                    Use the stroboscope to achieve 1500 RPM. Once achieved, turn on the induction machine to establish your first setpoint.
                 </li>
                 <li>
                     Fill in the values in <a href="#tab-2" style="color: #2563eb; text-decoration: underline;">Table 2</a>. 
@@ -203,29 +200,42 @@
                 </li>
             </ol>
 
-            <table id="tab-2" class="project-table">
-                <caption>TABLE 2: Recorded the measured and calculated data points.</caption>
-                <thead>
-                    <tr>
-                        <th>n (rpm)</th>
-                        <th>U tacho(V)</th>
-                        <th>I<sub>DC</sub> Armature (A)</th>
-                        <th>U<sub>DC</sub> Armature (V)</th>
-                        <th>U<sub>L12</sub> (V) <em>Do this once</em></th>
-                        <th>P (W)</th>
-                        <th>Q (var)</th>
-                        <th>S (VA)</th>  
-                        <th>cos(φ)</th> 
-                        <th>T (Nm)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td></td><td></td><td></td><td></td><td></td>
-                        <td></td><td></td><td></td><td></td><td></td>
-                    </tr>
-                </tbody>
-            </table>
+        <table id="tab-2" class="project-table">
+            <caption>TABLE 2: Recorded the measured and calculated data points.</caption>
+            <thead>
+                <tr>
+                    <!-- CALCULATE -->
+                    <th>CALCULATE</th>
+                    <!-- MEASURE -->
+                    <th colspan="3">MEASURE</th>
+                    <!-- MEASURE (1x) -->
+                    <th>MEASURE (1x)</th>
+                    <!-- MEASURE -->
+                    <th colspan="3">MEASURE</th>
+                    <!-- CALCULATE -->
+                    <th colspan="3">CALCULATE</th>
+                </tr>
+                <tr>
+                    <th>n (rpm)</th>
+                    <th>U tacho(V)</th>
+                    <th>I<sub>DC</sub> Armature (A)</th>
+                    <th>U<sub>DC</sub> Armature (V)</th>
+                    <th>U<sub>L12</sub> (V) <em>Do this once</em></th>
+                    <th>P (W)</th>
+                    <th>Q (var)</th>
+                    <th>S (VA)</th>
+                    <th>cos(φ)</th>
+                    <th>T (Nm)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td><td></td><td></td><td></td><td></td>
+                    <td></td><td></td><td></td><td></td><td></td>
+                </tr>
+            </tbody>
+        </table>
+
 
             <p>
                 In the table, <em>U</em><sub>tacho</sub> is the reading from the tacho, from which the rotational speed <em>n</em> can be identified using the ratio shown on your specific table. 
@@ -415,9 +425,26 @@ plt.show()</code></pre>
                 </figcaption>
             </figure>
 
-            <h2 id="Extra">Extra</h2>
+        <h2 id="Extra">Extra</h2>
 
-            <h3>Winding connection induction machine</h3>
+        <h3>Winding connection induction machine</h3>
+
+        <p>
+            The winding of the three-phase induction machine can be wired in different ways, 
+            as shown in <a href="#winding" style="color: #2563eb; text-decoration: underline;">
+            Figure <span id="winding-ref"></span></a>. Depending on whether the winding is 
+            connected in &Delta; or Y, the induction machine will have different rated voltage 
+            and current when connected to the three-phase power grid. However, the rated power 
+            remains the same.
+        </p>
+
+        <figure id="winding" style="text-align: center; margin: 30px auto; max-width: 700px;">
+            <img src="Pictures/delta_wye.jpg" alt="winding"
+                style="width: 100%; height: auto; border: none; box-shadow: none;">
+            <figcaption style="margin-top: 10px; font-size: 0.9rem; color: #6b7280; font-style: italic;">
+                Different methods to connect the induction machine using the terminal board.
+            </figcaption>
+        </figure>
 
             <h3>Power Clamp Manual</h3>
             <p>The power clamp manual is shown below:</p>
