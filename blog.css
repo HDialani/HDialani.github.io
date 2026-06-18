@@ -180,3 +180,57 @@ figure figcaption::before {
     counter-increment: fig-counter;
     content: "Fig. " counter(fig-counter) ": ";
 }
+
+/* Tip / Note Box */
+.tip-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background-color: #f0fdf4;
+    border-left: 4px solid #22c55e;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 24px 0;
+    font-size: 0.95rem;
+    color: #1f2937;
+}
+
+.tip-box-icon {
+    font-size: 1.1rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.tip-box-content strong {
+    display: block;
+    margin-bottom: 6px;
+    color: #15803d;
+    font-size: 1rem;
+}
+
+/* Warning Box */
+.warning-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background-color: #fffbeb;
+    border-left: 4px solid #f97316;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 24px 0;
+    font-size: 0.95rem;
+    color: #1f2937;
+}
+
+.warning-box-icon {
+    font-size: 1.1rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.warning-box-content strong {
+    display: block;
+    margin-bottom: 6px;
+    color: #c2410c;
+    font-size: 1rem;
+}
