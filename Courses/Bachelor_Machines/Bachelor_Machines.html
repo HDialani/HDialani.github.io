@@ -68,10 +68,10 @@
             </p>
 
             <figure id="top-level-machine" style="text-align: center; margin: 30px auto; max-width: 700px;">
-                <img src="Pictures/Top_level_machine.jpeg" alt="Top level machine setup"
+                <img src="Pictures/Toplevel_circuit.svg" alt="top-level-machine" 
                     style="width: 100%; height: auto; border: none; box-shadow: none;">
                 <figcaption style="margin-top: 10px; font-size: 0.9rem; color: #6b7280; font-style: italic;">
-                    Top level view of the machine setup.
+                    Top level view of the machine setup..
                 </figcaption>
             </figure>
 
@@ -118,21 +118,21 @@
             <ol>
                 <h3 id="before-intro">Before the Introduction Explanation</h3>
                 <li>
-                    Take a photo of the nameplate of the induction machine and write down the nameplate data of it (Brand, Type, Nominal stator phase voltage, etc.).
+                    Take photos of the nameplates on the DC machine and the induction machine, and write down the information shown (such as brand, type, and rated stator phase voltage).
                 </li>
                 <li>
-                    We want to connect the induction machine to the grid. Using the nameplate data, determine whether the induction machine should be connected in Y or Δ. Hint: This is grid voltage and frequency dependent.
+                    To connect the induction machine to the power grid, use the nameplate data to determine whether it should be wired in Y (star) or Δ (delta). Note: The correct connection depends on the grid voltage and frequency.
                 </li>  
 
                 <h3 id="Induction-only">Wiring and operation only the induction machine</h3>
                 <li>
-                    Using either a Y or Δ configuration, draw and connect the asynchronous circuit with the required wiring.
+                    Using the appropriate Y (star) or Δ (delta) configuration for the induction machine, draw the asynchronous motor circuit and connect it with the required wiring.
                 </li>  
                 <li>
-                    Connect the induction machine to the grid using the DOL (direct-on-line) switch.
+                    Connect the induction machine to the power grid using the DOL (Direct-On-Line).
                 </li>  
                 <li>
-                    Connect the Chauvin Arnoux F607 power meter to measure voltage, current, and power. Refer to the laminated wiring diagram and pay attention to the current direction arrow. The manual can be found in 
+                    Connect the Chauvin Arnoux F607 power meter to measure voltage, current, and power. Follow the laminated wiring diagram and pay attention to the direction of the current arrow. The manual can be found in
                     <a href="#power-clamp-manual" style="color: #2563eb; text-decoration: underline;"></a>.
                 </li>
                 <li>
@@ -142,27 +142,27 @@
                     Start the induction machine and record measurements using the power meter. What do you observe about real and reactive power?
                 </li>   
                 <li>
-                    Turn off the induction machine and the power to the table.
+                    Turn off the induction machine using the red DOL switch, and switch off the power to the table.
                 </li>                          
 
                 <h3 id="DC-only">Wiring and operation of the DC machine</h3>                                                             
                 <li>
-                    Connect the DC machine to the Siemens DC converter. Connect the rotor connections <em>A1</em> and <em>A2</em> and the field connections <em>E1</em> and <em>E2</em> of the DC machine to the <em>A1</em> and <em>A2</em> and <em>E1</em> and <em>E2</em> connections of the drive. Connect the <em>T+</em> and <em>T−</em> connections of the tacho to the <em>T+</em> and <em>T−</em> connections of the Siemens DC converter.
+                    Connect the DC machine to the Siemens DC converter. Connect the rotor connections <em>A1</em> and <em>A2</em>, and the field connections <em>E1</em> and <em>E2</em>, of the DC machine to the corresponding <em>A1</em>, <em>A2</em>, <em>E1</em>, and <em>E2</em> terminals of the drive. Connect the tacho connections <em>T+</em> and <em>T−</em> to the <em>T+</em> and <em>T−</em> terminals of the Siemens DC converter.
                 </li>         
                 <li>
-                    Using 2 multimeters, place a DC ammeter in <em>series</em> between the rotor armature and the DC drive circuit, <b>and</b> a DC voltmeter in <em>parallel</em> across the armature winding.
+                    Using two multimeters, place a DC ammeter in <em>series</em> between the rotor armature and the DC drive circuit, <b>and</b> a DC voltmeter in <em>parallel</em> across the armature winding.
                 </li>  
                 <li>
-                    Use the DC tachometer mounted on the shaft to measure the shaft speed. Connect a DC voltmeter in <em>parallel</em> to the tachometer output. The voltmeter reading tells you how fast the shaft is rotating, and the polarity of the voltage tells you the direction of rotation.
+                    Use the DC tachometer mounted on the shaft to measure the shaft speed. Connect a DC voltmeter in <em>parallel</em> to the tachometer output. The voltmeter reading indicates how fast the shaft is rotating, and the polarity of the voltage indicates the direction of rotation.
                 </li>     
                 <li>
-                    Draw the schematic of the setup with all the instruments and wires. Show your schematic and setup to the TA consultant before turning on the machines.
+                    Draw the schematic of the setup with all instruments and wiring. Show your schematic and setup to the TA/consultant before turning on the machines.
                 </li>       
                 <li>
-                    Start the DC machine and adjust it to reach 1500 RPM (use the tachometer ratio from your table to find the correct corresponding voltage).
+                    Start the DC machine and adjust it to reach 1500 RPM. Use the tachometer ratio from your table to determine the corresponding voltage.
                 </li>
                 <li>
-                    Turn off the power to the setup.
+                    Turn off the DC driver, and switch off the power to the table.
                 </li>
                 <li>
                     Find the instructor or TA to explain the next part.
@@ -170,11 +170,20 @@
 
                 <h3 id="DC_and_induction_combined_no_load">Spinning both machines at synchronous speed</h3>
                 <li>
-                    Spin the induction machine and note the direction of rotation using the tachometer voltage.
+                    Spin <b>only</b> the induction machine and note the direction of rotation using the tachometer voltage. If the voltage is positive, the rotation is clockwise; if it is negative, it is counter-clockwise.
                 </li>
                 <li>
-                    Use the stroboscope to achieve 1500 RPM. Once achieved, turn on the induction machine to establish your first setpoint.
+                    Turn off the induction machine, by pressing the DOL.
                 </li>
+                <li>
+                    Turn off the DC machine using the DC driver and note the direction of rotation using the tachometer voltage. If the voltage is positive, the rotation is clockwise; if it is negative, it is counter-clockwise.
+                </li>                                
+                <li>
+                    Use the stroboscope to achieve 1500 RPM. 
+                </li>
+                <li>
+                    Looking at the previous sign notation of the tacho measurements, if both machines spin in the same direction, turn on the induction machine to establish your first setpoint.
+                </li>                
                 <li>
                     Fill in the values in <a href="#tab-2" style="color: #2563eb; text-decoration: underline;">Table 2</a>. 
                     The values of cos&#x03C6; and torque <em>T</em> can be calculated at home. 
@@ -282,6 +291,25 @@
 
             <h2 id="Background">Theoretical background: induction machine</h2>
 
+            <h3>Winding connection induction machine</h3>
+
+        <p>
+            The winding of the three-phase induction machine can be wired in different ways, 
+            as shown in <a href="#winding" style="color: #2563eb; text-decoration: underline;">
+            Figure <span id="winding-ref"></span></a>. Depending on whether the winding is 
+            connected in &Delta; or Y, the induction machine will have different rated voltage 
+            and current when connected to the three-phase power grid. However, the rated power 
+            remains the same.
+        </p>
+
+        <figure id="winding" style="text-align: center; margin: 30px auto; max-width: 700px;">
+            <img src="Pictures/delta_wye.jpg" alt="winding"
+                style="width: 100%; height: auto; border: none; box-shadow: none;">
+            <figcaption style="margin-top: 10px; font-size: 0.9rem; color: #6b7280; font-style: italic;">
+                Different methods to connect the induction machine using the terminal board.
+            </figcaption>
+        </figure>
+
             <h3>Grid connection</h3>
             <p>
                 By neglecting the core loss, the equivalent circuit of the induction machine is shown in <a href="#equivalent" style="color: #2563eb; text-decoration: underline;"></a>.
@@ -316,6 +344,15 @@
                 overcurrent and overload protections connected in series with the contactor, as shown in 
                 <a href="#dol" style="color: #2563eb; text-decoration: underline;"></a>.
             </p>
+
+
+        <figure id="dol" style="text-align: center; margin: 30px auto; max-width: 700px;">
+            <img src="Pictures/DOL.jpg" alt="DOL"
+                style="width: 100%; height: auto; border: none; box-shadow: none;">
+            <figcaption style="margin-top: 10px; font-size: 0.9rem; color: #6b7280; font-style: italic;">
+                Schematic of a DOL starter.
+            </figcaption>
+        </figure>
 
             <h3>Torque-speed characteristic</h3>
             <p>
@@ -448,24 +485,14 @@ plt.show()</code></pre>
 
         <h2 id="Extra">Extra</h2>
 
-        <h3>Winding connection induction machine</h3>
-
-        <p>
-            The winding of the three-phase induction machine can be wired in different ways, 
-            as shown in <a href="#winding" style="color: #2563eb; text-decoration: underline;">
-            Figure <span id="winding-ref"></span></a>. Depending on whether the winding is 
-            connected in &Delta; or Y, the induction machine will have different rated voltage 
-            and current when connected to the three-phase power grid. However, the rated power 
-            remains the same.
-        </p>
-
-        <figure id="winding" style="text-align: center; margin: 30px auto; max-width: 700px;">
-            <img src="Pictures/delta_wye.jpg" alt="winding"
+        <figure id="White_board" style="text-align: center; margin: 30px auto; max-width: 700px;">
+            <img src="Pictures/White_board.jpeg" alt="White_board"
                 style="width: 100%; height: auto; border: none; box-shadow: none;">
             <figcaption style="margin-top: 10px; font-size: 0.9rem; color: #6b7280; font-style: italic;">
-                Different methods to connect the induction machine using the terminal board.
+                Toplevel drawing on whiteboard
             </figcaption>
         </figure>
+        
 
             <h3>Power Clamp Manual</h3>
             <p>The power clamp manual is shown below:</p>
