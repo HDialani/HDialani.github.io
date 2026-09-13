@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <span class="nav-link dropdown-button">Courses ▾</span>
             <div class="dropdown-content">
               <a href="/Courses/Bachelor_Machines/Bachelor_Machines.html">Bachelor Machines</a>
+              <a href="/Courses/ET4121_AC_Machines/ET4121_AC_Machines.html">ET4121 AC Machines</a>
             </div>
           </div>
         </div>

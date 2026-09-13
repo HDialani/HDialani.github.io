@@ -3,44 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Work · Hitesh Dialani</title>
-    <link rel="stylesheet" href="../../blog.css"> 
-    <link rel="stylesheet" href="../../styles.css">
+    <title>ET4121 AC Machines · Hitesh Dialani</title>
+    <link rel="stylesheet" href="/blog.css">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/scripts.js"></script>
 </head>
 <body>
 
-    <section class="nav-box" style="left: 0px;">
-        <a href="../index.html">Home</a>
-    </section>
-    
-	
-	<div class="dropdown" style="left: 90px;">
-		<span class="dropdown-button">CV ▾</span> 
-		<div class="dropdown-content">
-			<a href="../CV/Education.html">Education</a>
-			<a href="../CV/Experience.html">Experience</a>
-		</div>
-	</div>
-    
-	<section class="nav-box" style="left: 170px;">
-        <a href="../Projects/Projects.html">Projects</a>
-    </section>
+    <div id="navbar-placeholder"></div>
 
-    <header>
-        <h1 class="center">ET4121 AC Machines</h1>
-    </header>
-        
     <div class="project-container">
         
         <aside class="project-sidebar">
             <h2>Contents</h2>
             <ul>
-                <li><a href="#overview">Project Overview</a></li>
-                <li><a href="#system">System</a></li>
-                <li><a href="#hardware">Hardware</a></li>
-                <li><a href="#controller">Controller</a></li>                
-                <li><a href="#results">Results</a></li>
-                <li><a href="#references">References</a></li>
+                <li><a href="#Intro">Introduction</a></li>
+                <li><a href="#Characterise">Charachterising the induction machine.</a></li>
+                <li><a href="#startup">Startup induction machine</a></li>
             </ul>
 
             <footer class="footer">
@@ -51,39 +30,114 @@
     <hr class="separator">
 
  <main class="project-main">
-        <h1>Characterizing the startup dynamics of an induction machine</h1>
+        <h1>Extract motor parameters of induction machine and characterizing the startup dynamics of an induction machine</h1>
   
 
-            <h2 id="overview">Project Overview</h2>
+            <h2 id="Intro">Introduction</h2>
             <p>
-                In this experiment you are going to experience the behaviour of real-life induction and DC machines and measure (a part of) the torque-speed characteristic of the induction machine.
+                This lab consists of two parts. Part One focuses on extracting the parameters of the induction machine, while Part Two focuses on extracting the startup procedure and comparing it with the Simulink model.
             </p>
             <p>
                 Before you are allowed to do the lab work, you have to study the experiment procedures and the theory behind the experiments. 
                 After doing the lab work, you have to analyze the measured results, calculate and plot the theoretical torque-speed characteristic of the induction machine, then compare the measured results with the theoretical results. 
                 A report has to be be written and submitted to complete the lab work.
             </p>
-            <p>            
-                The deliverable of this module will be a course lab report as per requirements given in the manual.
-            </p>
                 
-            <h2 id="system">Circuit model</h2>
+            <h2 id="Characterise">Charachterising the induction machine.</h2>
 
 
-            <h2 id="hardware">Hardware</h2>
+            <h3 id="startup">Introduction</h3>
+            <p>
+                This section explains how to extract the start-up dynamics of an induction machine. 
+                It describes the method used to measure and process the inrush data of the Asynchronous Machine (ASM) during the practical exercise associated with course ET4121.
+            </p>
+            <p>
+                The measurements are used for Assignment 7, which involves creating a motor model in MATLAB/Simulink and validating it against measurements performed during the practical session. 
+                The measurements consist of one phase voltage, two phase currents, and the ASM rotor speed.
+            </p>            
+                Previously, this four-channel measurement was performed using a National Instruments (NI) data acquisition card. 
+                In this practical exercise, an alternative solution is used: the Fluke MDA-550 Motor Analyzer.
+            </p>
 
-                <h3 id="Section-1">Section 1</h3>
 
-                <h3 id="Section-2">Section 2</h3>
+            <h3 id="Setup">Setup for startup induction machine</h3>
+            <p>
+                Fig. 1 shows a schematic overview of the set-up, while  Fig. 2-6 provide zoomed-in views of specific details along with additional information.
+            </p>
+        
+        <figure id="Schematic_Overview" style="text-align: center; margin: 30px auto; max-width: 700px;">
+            <img src="Pictures/Schematic_Overview.png" alt="Schematic_Overview"
+                style="width: 100%; height: auto; border: none; box-shadow: none;">
+            <figcaption style="margin-top: 10px; font-size: 0.9rem; color: #6b7280; font-style: italic;">
+                Schematic overview inrush measurement with grid, DOL, Analyser, ASM and tachometer .
+            </figcaption>
+        </figure>            
 
+         <p>
+            Perform the following steps:
+        </p>
+        <ol>
+            <li>
+                Build up the measurement set-up, using Fig. 1 and the photos shown in Fig. 2–6. Pay attention to the channel layout and its colours, current direction of the current-clamps, and probe scaling.
+            </li>
+            <li>
+                Load (i.e. Recall) the settings into the Fluke MDA-550 and set it to single trigger.
+            </li>
+            <li>
+                Start the motor via the direct-on-line (DOL) starter (green button).
+            </li>
+            <li>
+                Save the recorded <code>*.csv</code> data on your USB-stick.
+            </li>
+        </ol>
 
-            <h2 id="controller">Controller</h2>
+        <figure id="Overview_setup" style="text-align: center; margin: 30px auto; max-width: 700px;">
+            <img src="Pictures/Overview_setup.png" alt="Overview_setup"
+                style="width: 100%; height: auto; border: none; box-shadow: none;">
+            <figcaption style="margin-top: 10px; font-size: 0.9rem; color: #6b7280; font-style: italic;">
+                Overview setup (<span style="color: #dc2626;">red</span>: speed, <span style="color: #2563eb;">blue</span>: phase voltage and current clamps: <span style="color: #111827; font-weight: 600;">black</span>).
+            </figcaption>
+        </figure>
 
+        <div style="display: flex; gap: 20px; justify-content: center; align-items: flex-start; flex-wrap: wrap;">
 
-            <h2 id="results">Results</h2>
+            <figure id="Delta connection" style="text-align: center; margin: 0; width: 48%; min-width: 280px;">
+            <img src="Pictures/Machine_Delta_Connection.png" alt="Delta Connection"
+                style="width: 100%; height: auto; border: none; box-shadow: none;">
+            <figcaption style="margin-top: 10px; font-size: 0.9rem; color: #6b7280; font-style: italic;">
+                Asynchronous machine in Delta connection.
+            </figcaption>
+        </figure>       
 
+         <figure id="Phase_Voltage_Connection" style="text-align: center; margin: 0; width: 48%; min-width: 280px;">
+            <img src="Pictures/Phase_Voltage_Connection.png" alt="Phase_Voltage_Connection"
+                style="width: 100%; height: auto; border: none; box-shadow: none;">
+            <figcaption style="margin-top: 10px; font-size: 0.9rem; color: #6b7280; font-style: italic;">
+                Phase voltage connection (<span style="color: #2563eb;">blue</span>:)
+            </figcaption>
+        </figure>       
 
-            <h2 id="references">References</h2>
+        </div>
+
+        <div style="display: flex; gap: 20px; justify-content: center; align-items: flex-start; flex-wrap: wrap;">
+
+            <figure id="Current Probes" style="text-align: center; margin: 0; width: 48%; min-width: 280px;">
+            <img src="Pictures/Current_Probes.png" alt="Current Probes"
+                style="width: 100%; height: auto; border: none; box-shadow: none;">
+            <figcaption style="margin-top: 10px; font-size: 0.9rem; color: #6b7280; font-style: italic;">
+                Current clamp (black / black).
+            </figcaption>
+        </figure>       
+
+         <figure id="Result_and_Probe_Connection" style="text-align: center; margin: 0; width: 48%; min-width: 280px;">
+            <img src="Pictures/Result_and_Probe_Connection.png" alt="Result and probes"
+                style="width: 100%; height: auto; border: none; box-shadow: none;">
+            <figcaption style="margin-top: 10px; font-size: 0.9rem; color: #6b7280; font-style: italic;">
+                Results and probe connections order.
+            </figcaption>
+        </figure>       
+        </div>        
+                   <h3 id="Get_your_data">Get your data</h3>
 
             </main>
         </div>
