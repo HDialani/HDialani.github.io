@@ -6,7 +6,10 @@
     <title>ET4121 AC Machines · Hitesh Dialani</title>
     <link rel="stylesheet" href="/blog.css">
     <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
     <script src="/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 </head>
 <body>
 
@@ -78,7 +81,7 @@
         </p>
         <ol>
             <li>
-                Build up the measurement set-up, using Fig. 1 and the photos shown in Fig. 2–6. Pay attention to the channel layout and its colours, current direction of the current-clamps, and probe scaling.
+                Build up the measurement set-up, using Fig. 1 and the photos shown in Fig. 2–5. Pay attention to the channel layout and its colours, current direction of the current-clamps, and probe scaling.
             </li>
             <li>
                 Load (i.e. Recall) the settings into the Fluke MDA-550 and set it to single trigger.
@@ -95,7 +98,7 @@
             <img src="Pictures/Overview_setup.png" alt="Overview_setup"
                 style="width: 100%; height: auto; border: none; box-shadow: none;">
             <figcaption style="margin-top: 10px; font-size: 0.9rem; color: #6b7280; font-style: italic;">
-                Overview setup (<span style="color: #dc2626;">red</span>: speed, <span style="color: #2563eb;">blue</span>: phase voltage and current clamps: <span style="color: #111827; font-weight: 600;">black</span>).
+                Overview setup (<span style="color: #dc2626;">red</span>: speed, <span style="color: #2563eb;">blue</span>: phase voltage and <span style="color: #111827; font-weight: 600;">black</span>: current clamps ).
             </figcaption>
         </figure>
 
@@ -125,7 +128,7 @@
             <img src="Pictures/Current_Probes.png" alt="Current Probes"
                 style="width: 100%; height: auto; border: none; box-shadow: none;">
             <figcaption style="margin-top: 10px; font-size: 0.9rem; color: #6b7280; font-style: italic;">
-                Current clamp (black / black).
+                Current clamp (<span style="color: #111827; font-weight: 600;">black</span>).
             </figcaption>
         </figure>       
 
@@ -137,7 +140,106 @@
             </figcaption>
         </figure>       
         </div>        
-                   <h3 id="Get_your_data">Get your data</h3>
+        <h3 id="Get_your_data">Get your data</h3>
+
+<pre style="border-radius: 8px; overflow-x: auto; font-size: 0.85rem; line-height: 1.6; box-shadow: 0 4px 10px rgba(0,0,0,0.08);"><code class="language-python">import numpy as np
+"""
+Read CSV data from Fluke MDA 550 motor analyser for stud practical ET4121
+author: Hitesh (Python port)
+date:   20-09-2026
+version: 00
+"""
+
+import os
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# --- File location ---------------------------------------------------------
+os.chdir(r'C:\Users\test ') 
+flnm = ' test.csv'  
+
+# --- Header part (lines 1..17), H in the MATLAB version --------------------
+with open(flnm, 'r') as f:
+    header_lines = [next(f).rstrip('\n') for _ in range(17)]
+
+# Split on commas and strip surrounding quotes -> 17-row token "matrix"
+tokens = [[t.strip().strip('"') for t in line.split(',')] for line in header_lines]
+
+def tok(row, col):
+    """1-based lookup so the indices match the original MATLAB code."""
+    try:
+        return tokens[row - 1][col - 1]
+    except IndexError:
+        return ''
+
+# --- Data part (from line 19 onwards), D in the MATLAB version -------------
+# Variable names come from line 1; skip lines 2..18 (the 17 header rows
+# minus the names row) so reading starts at line 19.
+D = pd.read_csv(flnm, header=0, skiprows=range(1, 18))
+
+# Drop channels that are entirely NaN / not used
+D = D.dropna(axis=1, how='all')
+
+# --- Extract the 4 (time, value) channel pairs -----------------------------
+t1, Ch1 = D.iloc[:, 0].to_numpy(), D.iloc[:, 1].to_numpy()
+t2, Ch2 = D.iloc[:, 2].to_numpy(), D.iloc[:, 3].to_numpy()
+t3, Ch3 = D.iloc[:, 4].to_numpy(), D.iloc[:, 5].to_numpy()
+t4, Ch4 = D.iloc[:, 6].to_numpy(), D.iloc[:, 7].to_numpy()
+
+# Tachometer speed scaling
+sc = 1000 / 20.37
+
+# --- Plot ------------------------------------------------------------------
+fig, axes = plt.subplots(3, 1, figsize=(9, 8))
+
+axes[0].plot(t1, Ch1 * sc)
+axes[0].set_xlabel(f"time [{tok(10, 2)}]")
+axes[0].set_ylabel('Speed')
+axes[0].axis([0, 0.8, -5 * sc, 35 * sc])
+axes[0].grid(True)
+axes[0].set_title('Channel 1 rotor speed')
+
+axes[1].plot(t2, Ch2)
+axes[1].set_xlabel(f"time [{tok(10, 5)}]")
+axes[1].set_ylabel(tok(17, 5))
+axes[1].axis([0, 0.8, -350, 350])
+axes[1].grid(True)
+axes[1].set_title('Channel 2 phase voltage')
+
+axes[2].plot(t3, Ch3, label='Ch3')
+axes[2].plot(t4, Ch4, label='Ch4')
+axes[2].set_xlabel(f"time [{tok(10, 8)}]")
+axes[2].set_ylabel(tok(17, 8))
+axes[2].axis([0, 0.8, -50, 50])
+axes[2].grid(True)
+axes[2].set_title('Channel 3/4 line currents')
+
+plt.tight_layout()
+plt.show()</code></pre>
+
+            <figure id="torque-speed" style="text-align: center; margin: 30px auto; max-width: 700px;">
+                <img src="Pictures/ET4121_results.png" alt="Torque-speed characteristic"
+                    style="width: 100%; height: auto; border: none; box-shadow: none;">
+                <figcaption style="margin-top: 10px; font-size: 0.9rem; color: #6b7280; font-style: italic;">
+                    Results of measurement.
+                </figcaption>
+            </figure>
+
+
+        <div style="text-align: center; margin: 30px auto; max-width: 700px;">
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                <iframe src="https://www.youtube.com/embed/gHK3SMeR02w"
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <p style="margin-top: 10px; font-size: 0.9rem; color: #6b7280; font-style: italic;">
+                Demonstration video.
+            </p>
+        </div>
+
+
 
             </main>
         </div>
