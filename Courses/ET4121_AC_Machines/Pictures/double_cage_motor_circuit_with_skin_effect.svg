@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 870 240"
+   width="870"
+   height="240"
+   version="1.1"
+   id="svg31"
+   sodipodi:docname="double_cage_motor_circuit_with_skin_effect.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:c2pa="http://c2pa.org/manifest"
+   xmlns:sodipodi0="http://sodipodi.sourceforge.net/DTD/sodipodi-0.0.dtd">
+  <defs
+     id="defs31" />
+  <sodipodi:namedview
+     id="namedview31"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.262"
+     inkscape:cx="500"
+     inkscape:cy="200.07924"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="2992"
+     inkscape:window-y="444"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g31" />
+  <metadata
+     id="metadata1">
+    <c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTpiNDhmMjQ2MS03YzBhLTQxOTctYWZmYS02YmJlZDEyMzMzMGEAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaAKKV/fr0zRkNfa5CZi1qtkAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDoyZjg2M2I0Mi04NTY5LTRlMWMtYjBiOS0xOTNmOTM2M2IwNGJscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNo7RPA96og052w0THuEyLt8wAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggNuqbwppRheSgqeHv2p8mtYD4zTvfnxeUZ3+zzf56jnOkZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaNrM9nn3jtI3nhQ2Y8zHKN0AAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYILSFREOWmNkXxEdyHvQzTCiNe6z7XepoNIrgzCks6k5tZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GQF5Zmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOmI0OGYyNDYxLTdjMGEtNDE5Ny1hZmZhLTZiYmVkMTIzMzMwYS9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOjhmMGU0NWQ4LTg0M2EtNDk5ZS1iOTg2LTEwMzlkMjY2ZjE0NnJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCA26pvCmlGF5KCp4e/anya1gPjNO9+fF5Rnf7PN/nqOc6JjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggQZO2rkqTd1xTY8B+qpLUDRsPrutH4EIMtAk4S6vh8aaiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggPw5o8DKcAeCCGCDMaFukns52sdOPQ7mtCV2plmWsmBV0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQAOoTFoydNLSg3PN6hcQHWodk0TPX3NbRgJAFTzhmg7Fo5BHEgIAGJ6wtEBngn1Nh1iYGTifpdDpnoWr2hVdzqA=</c2pa:manifest>
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>Induction Motor Double-Cage Equivalent Circuit</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <title
+     id="title1">Induction Motor Double-Cage Equivalent Circuit</title>
+  <desc
+     id="desc1">Per-phase equivalent circuit with two rotor branches</desc>
+  <sodipodi0:namedview
+     inkscape:current-layer="labels"
+     inkscape:zoom="1"
+     inkscape:cx="500"
+     inkscape:cy="200"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     showgrid="false" />
+  <!-- ================= WIRES / COMPONENTS ================= -->
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Circuit"
+     stroke="#000000"
+     stroke-width="2"
+     fill="none"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     id="g15">
+    <!-- Left terminals -->
+    <circle
+       cx="42.868462"
+       cy="15.760697"
+       r="5"
+       id="circle1" />
+    <circle
+       cx="42.868462"
+       cy="235.7607"
+       r="5"
+       id="circle2" />
+    <!-- Top wire: terminal -> R1 -->
+    <line
+       x1="47.868462"
+       y1="15.760697"
+       x2="97.868462"
+       y2="15.760697"
+       id="line2" />
+    <!-- R1 resistor (zigzag) -->
+    <polyline
+       points="105,95 113,83 129,107 145,83 161,107 177,83 193,107 201,95"
+       id="polyline2"
+       transform="translate(-7.1315369,-79.239302)" />
+    <!-- Wire R1 -> X1 -->
+    <line
+       x1="193.86845"
+       y1="15.760697"
+       x2="222.86845"
+       y2="15.760697"
+       id="line3" />
+    <!-- X1 inductor (4 bumps) -->
+    <path
+       d="m 222.86846,15.760698 a 12,12 0 0 1 24,0 12,12 0 0 1 24,0 12,12 0 0 1 24,0 12,12 0 0 1 24,0"
+       id="path3" />
+    <!-- Wire X1 -> junction A -->
+    <line
+       x1="318.86847"
+       y1="15.760697"
+       x2="372.86847"
+       y2="15.760697"
+       id="line4" />
+    <!-- Junction A (top of Xm branch) -->
+    <circle
+       cx="372.86847"
+       cy="15.760697"
+       r="4"
+       fill="#000000"
+       stroke="none"
+       id="circle4" />
+    <!-- Wire junction A -> X2' -->
+    <line
+       x1="372.86847"
+       y1="15.760697"
+       x2="412.86847"
+       y2="15.760697"
+       id="line5" />
+    <!-- X2' inductor -->
+    <path
+       d="m 412.86846,15.760698 a 12,12 0 0 1 24,0 12,12 0 0 1 24,0 12,12 0 0 1 24,0 12,12 0 0 1 24,0"
+       id="path5" />
+    <!-- Wire X2' -> junction B -->
+    <line
+       x1="508.86847"
+       y1="15.760697"
+       x2="572.86847"
+       y2="15.760697"
+       id="line6" />
+    <!-- Junction B (top of R2'/s branch) -->
+    <circle
+       cx="572.86847"
+       cy="15.760697"
+       r="4"
+       fill="#000000"
+       stroke="none"
+       id="circle6" />
+    <!-- Wire junction B -> X2'' -->
+    <line
+       x1="572.86847"
+       y1="15.760697"
+       x2="612.86847"
+       y2="15.760697"
+       id="line7" />
+    <!-- X2'' inductor -->
+    <path
+       d="m 612.86846,15.760698 a 12,12 0 0 1 24,0 12,12 0 0 1 24,0 12,12 0 0 1 24,0 12,12 0 0 1 24,0"
+       id="path7" />
+    <!-- Wire X2'' -> top-right corner -->
+    <line
+       x1="708.86847"
+       y1="15.760697"
+       x2="792.86847"
+       y2="15.760697"
+       id="line8" />
+    <!-- Right vertical wire down to R2''/s -->
+    <line
+       x1="792.86847"
+       y1="15.760697"
+       x2="792.86847"
+       y2="100.7607"
+       id="line9" />
+    <!-- R2''/s vertical resistor -->
+    <polyline
+       points="800,180 788,188 812,204 788,220 812,236 788,252 812,268 800,276"
+       id="polyline9"
+       transform="translate(-7.1315369,-79.239302)" />
+    <!-- Wire R2''/s -> bottom -->
+    <line
+       x1="792.86847"
+       y1="196.7607"
+       x2="792.86847"
+       y2="235.7607"
+       id="line10" />
+    <!-- Middle branch 1: junction A -> Xm -->
+    <line
+       x1="372.86847"
+       y1="15.760697"
+       x2="372.86847"
+       y2="100.7607"
+       id="line11" />
+    <!-- Xm inductor (vertical, bumps to the left) -->
+    <path
+       d="m 372.86846,100.7607 a 12,12 0 0 0 0,24 12,12 0 0 0 0,24 12,12 0 0 0 0,24 12,12 0 0 0 0,24"
+       id="path11" />
+    <!-- Wire Xm -> bottom junction -->
+    <line
+       x1="372.86847"
+       y1="196.7607"
+       x2="372.86847"
+       y2="235.7607"
+       id="line12" />
+    <!-- Bottom junction dot (Xm) -->
+    <circle
+       cx="372.86847"
+       cy="235.7607"
+       r="4"
+       fill="#000000"
+       stroke="none"
+       id="circle12" />
+    <!-- Middle branch 2: junction B -> R2'/s -->
+    <line
+       x1="572.86847"
+       y1="15.760697"
+       x2="572.86847"
+       y2="100.7607"
+       id="line13" />
+    <!-- R2'/s vertical resistor -->
+    <polyline
+       points="580,180 568,188 592,204 568,220 592,236 568,252 592,268 580,276"
+       id="polyline13"
+       transform="translate(-7.1315369,-79.239302)" />
+    <!-- Wire R2'/s -> bottom junction -->
+    <line
+       x1="572.86847"
+       y1="196.7607"
+       x2="572.86847"
+       y2="235.7607"
+       id="line14" />
+    <!-- Bottom junction dot (R2'/s) -->
+    <circle
+       cx="572.86847"
+       cy="235.7607"
+       r="4"
+       fill="#000000"
+       stroke="none"
+       id="circle14" />
+    <!-- Bottom wire -->
+    <line
+       x1="47.868462"
+       y1="235.7607"
+       x2="792.86847"
+       y2="235.7607"
+       id="line15" />
+  </g>
+  <!-- ================= LABELS ================= -->
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Labels"
+     font-family="'Times New Roman', Times, serif"
+     font-style="italic"
+     fill="#000000"
+     id="g31">
+    <!-- V1 -->
+    <text
+       x="7.8684626"
+       y="135.7607"
+       font-size="26px"
+       id="text15">V<tspan
+   baseline-shift="sub"
+   font-size="18px"
+   id="tspan15">1</tspan></text>
+    <!-- R1 -->
+    <text
+       x="132.86845"
+       y="60.760693"
+       font-size="22px"
+       id="text16">R<tspan
+   baseline-shift="sub"
+   font-size="15px"
+   id="tspan16">1</tspan></text>
+    <!-- X1 -->
+    <text
+       x="257.86847"
+       y="60.760693"
+       font-size="22px"
+       id="text17">X<tspan
+   baseline-shift="sub"
+   font-size="15px"
+   id="tspan17">1</tspan></text>
+    <!-- X2' = 2πf1L2'  (centered above X2' inductor) -->
+    <text
+       x="461.66086"
+       y="37.812992"
+       font-size="20px"
+       text-anchor="middle"
+       id="text21">X'<tspan
+   baseline-shift="sub"
+   font-size="14px"
+   id="tspan18">2</tspan><tspan
+   font-style="normal"
+   id="tspan19">= 2π</tspan>f<tspan
+   baseline-shift="sub"
+   font-size="14px"
+   id="tspan20">1</tspan>L'<tspan
+   baseline-shift="sub"
+   font-size="14px"
+   id="tspan21">2</tspan></text>
+    <!-- X2'' = 2πf1L2''  (centered above X2'' inductor) -->
+    <text
+       x="663.24567"
+       y="36.228207"
+       font-size="20px"
+       text-anchor="middle"
+       id="text25">X''<tspan
+   baseline-shift="sub"
+   font-size="14px"
+   id="tspan22">2</tspan><tspan
+   font-style="normal"
+   id="tspan23">= 2π</tspan>f<tspan
+   baseline-shift="sub"
+   font-size="14px"
+   id="tspan24">1</tspan>L''<tspan
+   baseline-shift="sub"
+   font-size="14px"
+   id="tspan25">2</tspan></text>
+    <!-- Xm (left of vertical coil) -->
+    <text
+       x="322.86847"
+       y="150.7607"
+       font-size="22px"
+       id="text26">X<tspan
+   baseline-shift="sub"
+   font-size="15px"
+   id="tspan26">m</tspan></text>
+    <!-- E1 (right of vertical coil) -->
+    <text
+       x="392.86847"
+       y="150.7607"
+       font-size="22px"
+       id="text27">E<tspan
+   baseline-shift="sub"
+   font-size="15px"
+   id="tspan27">1</tspan></text>
+    <!-- R2'/s fraction (right of first vertical resistor) -->
+    <text
+       x="597.86847"
+       y="140.7607"
+       font-size="22px"
+       id="text28">R'<tspan
+   baseline-shift="sub"
+   font-size="15px"
+   id="tspan28">2</tspan></text>
+    <line
+       x1="597.86847"
+       y1="148.7607"
+       x2="634.86847"
+       y2="148.7607"
+       stroke="#000000"
+       stroke-width="1.5"
+       id="line28" />
+    <text
+       x="610.86847"
+       y="170.7607"
+       font-size="22px"
+       id="text29">s</text>
+    <!-- R2''/s fraction (right of second vertical resistor) -->
+    <text
+       x="817.86847"
+       y="140.7607"
+       font-size="22px"
+       id="text30">R''<tspan
+   baseline-shift="sub"
+   font-size="15px"
+   id="tspan29">2</tspan></text>
+    <line
+       x1="817.86847"
+       y1="148.7607"
+       x2="858.86847"
+       y2="148.7607"
+       stroke="#000000"
+       stroke-width="1.5"
+       id="line30" />
+    <text
+       x="832.86847"
+       y="170.7607"
+       font-size="22px"
+       id="text31">s</text>
+  </g>
+</svg>

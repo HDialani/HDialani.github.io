@@ -58,9 +58,123 @@
                 The measurements are used for Assignment 7, which involves creating a motor model in MATLAB/Simulink and validating it against measurements performed during the practical session. 
                 The measurements consist of one phase voltage, two phase currents, and the ASM rotor speed.
             </p>            
-                Previously, this four-channel measurement was performed using a National Instruments (NI) data acquisition card. 
-                In this practical exercise, an alternative solution is used: the Fluke MDA-550 Motor Analyzer.
+
+            <figure id="ieee-equivalent-circuits" style="text-align: center; margin: 30px auto; max-width: 900px;">
+                <img src="Pictures/IEEE_equivalent_circuits.png" alt="IEEE recommended equivalent circuits"
+                    style="width: 100%; height: auto; border: none; box-shadow: none;">
+                <figcaption style="margin-top: 10px; font-size: 0.9rem; color: #6b7280; font-style: italic;">
+                    IEEE recommended equivalent circuit (a) neglecting skin effect, (b) with skin effect.
+                </figcaption>
+            </figure>
+
+            <p>
+                To determine the parameters, we determine the current phasor at three different values of the slip:
             </p>
+            <ul>
+                <li><em>s</em> = 0 (synchronous, driven by DC machine, check speed with stroboscope)</li>
+                <li><em>s</em> = <em>s</em><sub>nom</sub> (rated slip, use DC machine as generator, check speed with tacho)</li>
+                <li><em>s</em> = 1 (blocked rotor, reduced voltage)</li>
+            </ul>
+            <p>
+                These measurements have to be done at three different voltage and current levels:
+            </p>
+            <ul>
+                <li>For <em>s</em> = 0 and <em>s</em> = <em>s</em><sub>nom</sub> at voltage levels of 33%, 66% and 100% of the rated voltage.</li>
+                <li>For <em>s</em> = 1 at current levels of 33%, 66% and 100% of the rated current.</li>
+            </ul>
+
+            <h3 id="no-load-test">No-load test (<em>s</em> = 0)</h3>
+            <p>
+                The no-load test was performed at a frequency of 50 Hz. The line-to-line voltage was varied to observe the magnetizing branch characteristics.
+            </p>
+            <table id="tab-1" class="project-table">
+                <caption>TABLE 1: Measured data during the no-load test.</caption>
+                <thead>
+                    <tr>
+                        <th>%</th>
+                        <th>N (rpm)</th>
+                        <th>U<sub>Lin</sub> (V)</th>
+                        <th>I<sub>Lin</sub> (A)</th>
+                        <th>cos φ</th>
+                        <th>P (W)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>33</td><td>1500</td><td>125.1</td><td>0.71</td><td>0.26</td><td>30</td></tr>
+                    <tr><td>66</td><td>1500</td><td>250.7</td><td>1.32</td><td>0.18</td><td>105</td></tr>
+                    <tr><td>100</td><td>1500</td><td>379.9</td><td>2.38</td><td>0.08</td><td>153</td></tr>
+                </tbody>
+            </table>
+
+            <h3 id="nominal-operation-test">Nominal operation test (<em>s</em> = <em>s</em><sub>nom</sub>)</h3>
+            <p>
+                The machine was loaded until it reached the target speed. The values were recorded at steady state.
+            </p>
+            <table id="tab-2" class="project-table">
+                <caption>TABLE 2: Measured data during nominal operation.</caption>
+                <thead>
+                    <tr>
+                        <th>%</th>
+                        <th>N (rpm)</th>
+                        <th>U<sub>Lin</sub> (V)</th>
+                        <th>I<sub>Lin</sub> (A)</th>
+                        <th>cos φ</th>
+                        <th>P (W)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>33</td><td>1400</td><td>125.3</td><td>2.06</td><td>0.86</td><td>358</td></tr>
+                    <tr><td>66</td><td>1400</td><td>250.5</td><td>3.83</td><td>0.88</td><td>1462</td></tr>
+                    <tr><td>100</td><td>1400</td><td>380</td><td>4.06</td><td>0.76</td><td>2035</td></tr>
+                </tbody>
+            </table>
+
+            <h3 id="blocked-rotor-test">Blocked-rotor test (<em>s</em> = 1)</h3>
+            <p>
+                The blocked-rotor test was performed at 50 Hz. The voltage was reduced to stay within the current limits of the 2.2 kW machine.
+            </p>
+            <table id="tab-3" class="project-table">
+                <caption>TABLE 3: Measured data during the blocked-rotor test.</caption>
+                <thead>
+                    <tr>
+                        <th>%</th>
+                        <th>N (rpm)</th>
+                        <th>U<sub>Lin</sub> (V)</th>
+                        <th>I<sub>Lin</sub> (A)</th>
+                        <th>cos φ</th>
+                        <th>P (W)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>33</td><td>0</td><td>46</td><td>1.71</td><td>0.46</td><td>60</td></tr>
+                    <tr><td>66</td><td>0</td><td>71.9</td><td>3.43</td><td>0.54</td><td>220</td></tr>
+                    <tr><td>100</td><td>0</td><td>101.8</td><td>5.2</td><td>0.61</td><td>561</td></tr>
+                </tbody>
+            </table>
+
+
+        <p>
+            <strong>Stator Resistance:</strong>
+        </p>
+        <table id="tab-4" class="project-table">
+            <caption>TABLE 4: Measured stator resistance.</caption>
+            <thead>
+                <tr>
+                    <th>R<sub>sa</sub></th>
+                    <th>R<sub>sb</sub></th>
+                    <th>R<sub>sc</sub></th>
+                    <th>Average</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>9 Ω</td>
+                    <td>9.1 Ω</td>
+                    <td>9.1 Ω</td>
+                    <td>9.067 Ω</td>
+                </tr>
+            </tbody>
+        </table>
 
 
             <h3 id="Setup">Setup for startup induction machine</h3>
@@ -68,20 +182,32 @@
                 Fig. 1 shows a schematic overview of the set-up, while  Fig. 2-6 provide zoomed-in views of specific details along with additional information.
             </p>
         
-        <figure id="Schematic_Overview" style="text-align: center; margin: 30px auto; max-width: 700px;">
-            <img src="Pictures/Schematic_Overview.png" alt="Schematic_Overview"
-                style="width: 100%; height: auto; border: none; box-shadow: none;">
-            <figcaption style="margin-top: 10px; font-size: 0.9rem; color: #6b7280; font-style: italic;">
-                Schematic overview inrush measurement with grid, DOL, Analyser, ASM and tachometer .
-            </figcaption>
-        </figure>            
+            
+        <div style="display: flex; gap: 20px; justify-content: center; align-items: flex-start; flex-wrap: wrap;">
 
+            <figure id="Schematic_Overview" style="text-align: center; margin: 0; width: 48%; min-width: 280px;">
+                <img src="Pictures/Schematic_Overview.png" alt="Schematic_Overview"
+                    style="width: 100%; height: auto; border: none; box-shadow: none;">
+                <figcaption style="margin-top: 10px; font-size: 0.9rem; color: #6b7280; font-style: italic;">
+                    Schematic overview inrush measurement with grid, DOL, Analyser, ASM and tachometer.
+                </figcaption>
+            </figure>
+
+            <figure id="Overview_setup" style="text-align: center; margin: 0; width: 48%; min-width: 280px;">
+                <img src="Pictures/Overview_setup.png" alt="Overview_setup"
+                    style="width: 100%; height: auto; border: none; box-shadow: none;">
+                <figcaption style="margin-top: 10px; font-size: 0.9rem; color: #6b7280; font-style: italic;">
+                    Overview setup (<span style="color: #dc2626;">red</span>: speed, <span style="color: #2563eb;">blue</span>: phase voltage and <span style="color: #111827; font-weight: 600;">black</span>: current clamps).
+                </figcaption>
+            </figure>
+
+        </div>
          <p>
             Perform the following steps:
         </p>
         <ol>
             <li>
-                Build up the measurement set-up, using Fig. 1 and the photos shown in Fig. 2–5. Pay attention to the channel layout and its colours, current direction of the current-clamps, and probe scaling.
+                Build up the measurement set-up, using Fig. 1
             </li>
             <li>
                 Load (i.e. Recall) the settings into the Fluke MDA-550 and set it to single trigger.
@@ -93,7 +219,7 @@
                 Save the recorded <code>*.csv</code> data on your USB-stick.
             </li>
         </ol>
-
+<!-- 
         <figure id="Overview_setup" style="text-align: center; margin: 30px auto; max-width: 700px;">
             <img src="Pictures/Overview_setup.png" alt="Overview_setup"
                 style="width: 100%; height: auto; border: none; box-shadow: none;">
@@ -139,7 +265,7 @@
                 Results and probe connections order.
             </figcaption>
         </figure>       
-        </div>        
+        </div>         -->
         <h3 id="Get_your_data">Get your data</h3>
 
 <pre style="border-radius: 8px; overflow-x: auto; font-size: 0.85rem; line-height: 1.6; box-shadow: 0 4px 10px rgba(0,0,0,0.08);"><code class="language-python">import numpy as np
